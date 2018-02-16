@@ -26,7 +26,7 @@
     [ffff setAndroidPlatform:[[TargetPlatform new] initWithPrimary:@"android" withFallBack:@"aaaaaa"]];
     [ffff setWebPlatform: [[TargetPlatform new] initWithPrimary:@"asdas" withFallBack:@"ffffff"]];
     
-    NSLog(@"%@", ffff.dictionaryValue);
+   // NSLog(@"%@", ffff.dictionaryValue);
     
     
     ////------>
