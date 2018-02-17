@@ -8,10 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "UrlData.h"
-#import "ServiceLayer.h"
 
-#import "DataModels.h"
-#import "AppGainTracker.h"
+#import "AppGain.h"
 @interface ViewController : UIViewController
 
 

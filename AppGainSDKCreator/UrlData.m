@@ -28,13 +28,13 @@
     return urlString;
 
 }
-+ (NSString*) getmatcherUrl{
++ (NSString*) getmatcherUrlWithUserID :(NSString*)userID{
     
     SdkKeys *temp = [SdkKeys new];
-    //@"https://<AppSubDomainName>.appgain.io/i/smartlinks/match?userId= <UID_VALUE>&isfirstRun=<true | false>";
-
     
-    NSString *urlString =  [NSString stringWithFormat:@"%@/%@/%@/%@/%@/%@", @"https://", [temp getAppSubDomainName], @".appgain.io/i/smartlinks/match?userId=",[temp getDeviceUDID],@"&isfirstRun=",[temp getFirstRun]];
+//https://[AppSubDomainName].appgain.io/i/smartlinks/match[?userId= parser user id ]&[isfirstRun=true|false]&[appuserId=APP userID] <- may can optional
+    
+    NSString *urlString =  [NSString stringWithFormat:@"%@/%@/%@/%@/%@/%@/%@/%@", @"https://", [temp getAppSubDomainName], @".appgain.io/i/smartlinks/match?userId=",[temp getParserUserID],@"&isfirstRun=",[temp getFirstRun],@"&appuserId=",[temp getParserUserID]];
     
     return urlString;
 

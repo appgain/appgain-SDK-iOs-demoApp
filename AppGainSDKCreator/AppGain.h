@@ -14,13 +14,13 @@
 /// import all model you need
 #import "DataModels.h"
 
-@interface AppGainTracker : NSObject
+@interface AppGain : NSObject
 +(void)ConfigureApp:( NSString* )key;
 
 +(void)CreateSmartLinkWithObject:( SmartLinkObject*)linkObject whenFinish:(void (^)(NSURLResponse*, NSMutableDictionary*))onComplete;
 
-
-
++(void)CreateLinkMactcherWithUserID :(NSString *)userID;
++(void)createLandingPageWithObject:(LandingPageObject *)landingPage;
 //
 //curl --request GET \
 //--url

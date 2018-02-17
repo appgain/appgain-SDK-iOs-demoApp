@@ -157,6 +157,33 @@
     [defaults synchronize];
 }
 
+
+
+
+///userID in parser server
+
+-(NSString *)getParserUserID{
+
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSString *theKey = [defaults stringForKey:@"userParserID"];
+    
+    
+    if (theKey == NULL ){
+        return @"";
+    }
+    return theKey;
+}
+
+
+-(void)setParserUserID:(NSString *)key{
+    
+    
+
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setValue:key forKey:@"userParserID"];
+    [defaults synchronize];
+}
+
 -(NSString *)getDeviceUDID{
 
 

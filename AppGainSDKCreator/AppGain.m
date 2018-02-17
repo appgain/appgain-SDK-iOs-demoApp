@@ -6,9 +6,9 @@
 //  Copyright © 2018 Ragaie Alfy. All rights reserved.
 //
 
-#import "AppGainTracker.h"
+#import "AppGain.h"
 
-@implementation  AppGainTracker
+@implementation  AppGain
 
 
 
@@ -24,42 +24,58 @@
         
     }];
 }
-//Match link open
--(void)matchLink{
-
-    [[ServiceLayer new] getRequestWithURL:[UrlData getmatcherUrl] didFinish:^(NSURLResponse *response, NSMutableDictionary *result) {
-     
-        NSLog(@"%@",result);
-    }];
-
-}
-
-
-+(void)createLandingPage{
-
-
-        
-
-}
-
-
-
-
 
 ///create smartLink for app
 +(void)CreateSmartLinkWithObject:( SmartLinkObject*)linkObject whenFinish:(void (^)(NSURLResponse*, NSMutableDictionary*))onComplete{
-
     
-   
+    
+    
     [[ServiceLayer new] postRequestWithURL: [UrlData getSmartUrl] withBodyData: linkObject.description didFinish:^(NSURLResponse * response, NSMutableDictionary *result) {
-    
+        
         
         NSLog(@"%@",result);
-
+        
         
     }];
     
 }
+
+
+////create linkMatcher
++(void)CreateLinkMactcherWithUserID :(NSString *)userID{
+
+
+    
+    
+    [[ServiceLayer new] getRequestWithURL:[UrlData getmatcherUrlWithUserID:userID] didFinish:^(NSURLResponse *response, NSMutableDictionary *result) {
+        
+        NSLog(@"%@",result);
+    }];
+    
+
+}
+
+
+
+
+
++(void)createLandingPageWithObject:(LandingPageObject *)landingPage{
+    
+    
+    [[ServiceLayer new] postRequestWithURL:[UrlData getLandingPageUrl] withBodyData: [landingPage dictionaryValue] didFinish:^(NSURLResponse *response, NSMutableDictionary *result) {
+        NSLog(@"%@",result);
+
+    }];
+
+
+        
+
+}
+
+
+
+
+
 //MARK:create automator
     
 +(void)CreateAutomatorWithTrigger:(NSString *)trigger andUserId:(NSString *)userID{

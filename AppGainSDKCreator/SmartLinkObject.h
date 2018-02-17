@@ -20,7 +20,7 @@
 @property (nonatomic, strong) TargetPlatform *webPlatform;
 @property (nonatomic, strong) NSString *slug ;
 
-- (SmartLinkObject*)initWithHeader: (NSString*)header andImage : (NSString*) imageUrl andDescription : (NSString*) description andName :(NSString*)name ;
+- (SmartLinkObject*)initWithHeader: (NSString*)header andImage : (NSString*) imageUrl andDescription : (NSString*) description andName :(NSString*)name iosTarget :(TargetPlatform*)ios androidTarget :(TargetPlatform*)android webTarget :(TargetPlatform*)web;
 
 
 

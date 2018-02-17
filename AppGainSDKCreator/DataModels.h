@@ -9,3 +9,4 @@
 
 #import "SmartLinkObject.h"
 #import "TargetPlatform.h"
+#import "LandingPageObject.h"

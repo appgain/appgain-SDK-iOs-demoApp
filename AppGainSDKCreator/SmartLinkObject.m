@@ -23,7 +23,7 @@
 @synthesize webPlatform = _webPlatform;
 @synthesize slug = _slug;
 
--(SmartLinkObject *)initWithHeader:(NSString *)header andImage:(NSString *)imageUrl andDescription:(NSString *)description andName:(NSString *)name{
+-(SmartLinkObject *)initWithHeader:(NSString *)header andImage:(NSString *)imageUrl andDescription:(NSString *)description andName:(NSString *)name iosTarget:(TargetPlatform *)ios androidTarget:(TargetPlatform *)android webTarget:(TargetPlatform *)web{
 
 
     self = [super init];
@@ -32,6 +32,9 @@
         _imageUrl = imageUrl;
         _linkDescription = description;
         _linkName = name;
+        _iosPlatform = ios;
+        _androidPlatform = android;
+        _webPlatform = web;
         _slug = @"";
     }
     return self;

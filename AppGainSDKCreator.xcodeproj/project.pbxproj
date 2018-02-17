@@ -16,12 +16,12 @@
 		DFAF12CB20323B37000E2677 /* UrlData.m in Sources */ = {isa = PBXBuildFile; fileRef = DFAF12CA20323B37000E2677 /* UrlData.m */; };
 		DFAF12CF203241AC000E2677 /* SdkKeys.m in Sources */ = {isa = PBXBuildFile; fileRef = DFAF12CE203241AC000E2677 /* SdkKeys.m */; };
 		DFAF12D320324A2D000E2677 /* ServiceLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = DFAF12D220324A2D000E2677 /* ServiceLayer.m */; };
-		DFD83F6A203385C900575BE2 /* AppGainTracker.m in Sources */ = {isa = PBXBuildFile; fileRef = DFD83F69203385C900575BE2 /* AppGainTracker.m */; };
+		DFD83F6A203385C900575BE2 /* AppGain.m in Sources */ = {isa = PBXBuildFile; fileRef = DFD83F69203385C900575BE2 /* AppGain.m */; };
 		DFD83F7320338F4900575BE2 /* SmartLinkObject.m in Sources */ = {isa = PBXBuildFile; fileRef = DFD83F6E20338F4900575BE2 /* SmartLinkObject.m */; };
 		DFD83F7520338F4900575BE2 /* TargetPlatform.m in Sources */ = {isa = PBXBuildFile; fileRef = DFD83F7220338F4900575BE2 /* TargetPlatform.m */; };
 		DFD93EC020362931003474B9 /* LandingPageObject.m in Sources */ = {isa = PBXBuildFile; fileRef = DFD93EBF20362931003474B9 /* LandingPageObject.m */; };
 		DFD93EC42036371F003474B9 /* SocialmediaSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = DFD93EC32036371F003474B9 /* SocialmediaSettings.m */; };
-		DFD93EC92036394B003474B9 /* LandingTarget.m in Sources */ = {isa = PBXBuildFile; fileRef = DFD93EC82036394B003474B9 /* LandingTarget.m */; };
+		DFD93EC92036394B003474B9 /* LandingButton.m in Sources */ = {isa = PBXBuildFile; fileRef = DFD93EC82036394B003474B9 /* LandingButton.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,8 +42,8 @@
 		DFAF12CE203241AC000E2677 /* SdkKeys.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SdkKeys.m; sourceTree = "<group>"; };
 		DFAF12D120324A2D000E2677 /* ServiceLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServiceLayer.h; sourceTree = "<group>"; };
 		DFAF12D220324A2D000E2677 /* ServiceLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServiceLayer.m; sourceTree = "<group>"; };
-		DFD83F68203385C900575BE2 /* AppGainTracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppGainTracker.h; sourceTree = "<group>"; };
-		DFD83F69203385C900575BE2 /* AppGainTracker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppGainTracker.m; sourceTree = "<group>"; };
+		DFD83F68203385C900575BE2 /* AppGain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppGain.h; sourceTree = "<group>"; };
+		DFD83F69203385C900575BE2 /* AppGain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppGain.m; sourceTree = "<group>"; };
 		DFD83F6C20338F4900575BE2 /* DataModels.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataModels.h; sourceTree = "<group>"; };
 		DFD83F6D20338F4900575BE2 /* SmartLinkObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SmartLinkObject.h; sourceTree = "<group>"; };
 		DFD83F6E20338F4900575BE2 /* SmartLinkObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SmartLinkObject.m; sourceTree = "<group>"; };
@@ -53,8 +53,8 @@
 		DFD93EBF20362931003474B9 /* LandingPageObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LandingPageObject.m; sourceTree = "<group>"; };
 		DFD93EC22036371F003474B9 /* SocialmediaSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocialmediaSettings.h; sourceTree = "<group>"; };
 		DFD93EC32036371F003474B9 /* SocialmediaSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SocialmediaSettings.m; sourceTree = "<group>"; };
-		DFD93EC72036394B003474B9 /* LandingTarget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LandingTarget.h; sourceTree = "<group>"; };
-		DFD93EC82036394B003474B9 /* LandingTarget.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LandingTarget.m; sourceTree = "<group>"; };
+		DFD93EC72036394B003474B9 /* LandingButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LandingButton.h; sourceTree = "<group>"; };
+		DFD93EC82036394B003474B9 /* LandingButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LandingButton.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,8 +155,8 @@
 		DFD83F662033856D00575BE2 /* First Hand of SDK Data */ = {
 			isa = PBXGroup;
 			children = (
-				DFD83F68203385C900575BE2 /* AppGainTracker.h */,
-				DFD83F69203385C900575BE2 /* AppGainTracker.m */,
+				DFD83F68203385C900575BE2 /* AppGain.h */,
+				DFD83F69203385C900575BE2 /* AppGain.m */,
 			);
 			name = "First Hand of SDK Data";
 			sourceTree = "<group>";
@@ -174,7 +174,7 @@
 		DFD93EBD20362915003474B9 /* landingPage */ = {
 			isa = PBXGroup;
 			children = (
-				DFD93EC520363926003474B9 /* target */,
+				DFD93EC520363926003474B9 /* landing button */,
 				DFD93EC1203636ED003474B9 /* social media */,
 				DFD93EBE20362931003474B9 /* LandingPageObject.h */,
 				DFD93EBF20362931003474B9 /* LandingPageObject.m */,
@@ -191,21 +191,13 @@
 			name = "social media";
 			sourceTree = "<group>";
 		};
-		DFD93EC520363926003474B9 /* target */ = {
+		DFD93EC520363926003474B9 /* landing button */ = {
 			isa = PBXGroup;
 			children = (
-				DFD93EC620363937003474B9 /* New Group */,
-				DFD93EC72036394B003474B9 /* LandingTarget.h */,
-				DFD93EC82036394B003474B9 /* LandingTarget.m */,
+				DFD93EC72036394B003474B9 /* LandingButton.h */,
+				DFD93EC82036394B003474B9 /* LandingButton.m */,
 			);
-			name = target;
-			sourceTree = "<group>";
-		};
-		DFD93EC620363937003474B9 /* New Group */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = "New Group";
+			name = "landing button";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -287,12 +279,12 @@
 			files = (
 				DFAF12B920323AE9000E2677 /* ViewController.m in Sources */,
 				DFD93EC020362931003474B9 /* LandingPageObject.m in Sources */,
-				DFD93EC92036394B003474B9 /* LandingTarget.m in Sources */,
+				DFD93EC92036394B003474B9 /* LandingButton.m in Sources */,
 				DFAF12CB20323B37000E2677 /* UrlData.m in Sources */,
 				DFAF12B620323AE9000E2677 /* AppDelegate.m in Sources */,
 				DFD83F7520338F4900575BE2 /* TargetPlatform.m in Sources */,
 				DFD93EC42036371F003474B9 /* SocialmediaSettings.m in Sources */,
-				DFD83F6A203385C900575BE2 /* AppGainTracker.m in Sources */,
+				DFD83F6A203385C900575BE2 /* AppGain.m in Sources */,
 				DFAF12D320324A2D000E2677 /* ServiceLayer.m in Sources */,
 				DFAF12B320323AE9000E2677 /* main.m in Sources */,
 				DFAF12CF203241AC000E2677 /* SdkKeys.m in Sources */,

@@ -48,6 +48,10 @@
 
 -(NSString*) getFirstRun;
 -(void) setFirstRun :(NSString*)  key;
+//first run
+
+-(NSString*) getParserUserID;
+-(void) setParserUserID :(NSString*)  key;
 
 
 //UDID value

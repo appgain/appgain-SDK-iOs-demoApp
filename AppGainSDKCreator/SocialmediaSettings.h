@@ -19,5 +19,5 @@
 
 - (id)initWithTitle:(NSString*)title andDescription:(NSString*)description andImage : (NSString*)image ;
 
-
+-(NSDictionary *)dictionaryValue;
 @end

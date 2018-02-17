@@ -17,7 +17,7 @@
 + (NSString*) getAppKeysUrl;
 
 + (NSString*) getSmartUrl;
-+ (NSString*) getmatcherUrl;
++ (NSString*) getmatcherUrlWithUserID :(NSString*)userID;
 + (NSString*) getLandingPageUrl;
 + (NSString*) getnotificationTrackUrl;
 + (NSString*) getAutomatorUrlWithTriggerPoint :(NSString*)trigger;

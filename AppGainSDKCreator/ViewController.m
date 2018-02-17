@@ -17,20 +17,25 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+  
+    TargetPlatform *web = [[TargetPlatform new] initWithPrimary:@"iiiiiiooooosss" withFallBack:@""];
+    
+    TargetPlatform *android = [[TargetPlatform new] initWithPrimary:@"android" withFallBack:@"aaaaaa"];
+   TargetPlatform *ios =   [[TargetPlatform new] initWithPrimary:@"asdas" withFallBack:@"ffffff"];
+    
+    
+    
     /////////create smart linkObject
-    SmartLinkObject *ffff = [[SmartLinkObject new] initWithHeader:@"hello" andImage:@"http://xvxc.xcvxc.cxvx" andDescription:@"welcome to my hotel" andName:@"ragaie"];
+    SmartLinkObject *ffff = [[SmartLinkObject new] initWithHeader:@"hello" andImage:@"http://xvxc.xcvxc.cxvx" andDescription:@"welcome to my hotel" andName:@"ragaie" iosTarget:ios androidTarget:android webTarget:web];
     
     [ffff setSlug:@"jjjjjj"];
-    [ffff setIosPlatform:[[TargetPlatform new] initWithPrimary:@"iiiiiiooooosss" withFallBack:@"iiii"]];
     
-    [ffff setAndroidPlatform:[[TargetPlatform new] initWithPrimary:@"android" withFallBack:@"aaaaaa"]];
-    [ffff setWebPlatform: [[TargetPlatform new] initWithPrimary:@"asdas" withFallBack:@"ffffff"]];
     
    // NSLog(@"%@", ffff.dictionaryValue);
     
     
     ////------>
-    [AppGainTracker CreateSmartLinkWithObject:ffff whenFinish:^(NSURLResponse * response, NSMutableDictionary * result) {
+    [AppGain CreateSmartLinkWithObject:ffff whenFinish:^(NSURLResponse * response, NSMutableDictionary * result) {
         
     }];
    

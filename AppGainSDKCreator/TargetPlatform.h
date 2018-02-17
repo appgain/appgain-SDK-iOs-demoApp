@@ -10,7 +10,7 @@
 
 
 
-@interface TargetPlatform : NSObject
+@interface TargetPlatform : NSObject  
 
 
 @property (nonatomic, strong) NSString *primary;
