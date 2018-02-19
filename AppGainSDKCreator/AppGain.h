@@ -10,23 +10,16 @@
 #import "ServiceLayer.h"
 #import "SdkKeys.h"
 #import "UrlData.h"
-
 /// import all model you need
 #import "DataModels.h"
 
 @interface AppGain : NSObject
 +(void)ConfigureApp:( NSString* )key;
-
++(void)RegisterDeviceWithToken:(NSData*)deviceToken;
 +(void)CreateSmartLinkWithObject:( SmartLinkObject*)linkObject whenFinish:(void (^)(NSURLResponse*, NSMutableDictionary*))onComplete;
 
-+(void)CreateLinkMactcherWithUserID :(NSString *)userID;
-+(void)createLandingPageWithObject:(LandingPageObject *)landingPage;
-//
-//curl --request GET \
-//--url
-//https://automator.appgain.io/automessages/<AppID>/firevent/<trigger
-//point name>/<userId>
-//--header 'appApiKey: [appApiKey]'
-+(void)CreateAutomatorWithTrigger :(NSString*) trigger andUserId :(NSString*)userID;
-
++(void)CreateLinkMactcherWithUserID :(NSString *)userID whenFinish:(void (^)(NSURLResponse*, NSMutableDictionary*))onComplete;
++(void)createLandingPageWithObject:(LandingPageObject *)landingPage whenFinish:(void (^)(NSURLResponse*, NSMutableDictionary*))onComplete;
++(void)CreateAutomatorWithTrigger :(NSString*) trigger andUserId :(NSString*)userID whenFinish:(void (^)(NSURLResponse*, NSMutableDictionary*))onComplete;
++(void)trackNotificationWithAction:(NSString*)action whenFinish:(void (^)(NSURLResponse*, NSMutableDictionary*))onComplete;
 @end

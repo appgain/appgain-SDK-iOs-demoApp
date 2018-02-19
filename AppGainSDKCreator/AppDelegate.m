@@ -21,25 +21,41 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
-//    UIUserNotificationType userNotificationTypes = (UIUserNotificationTypeAlert | UIUserNotificationTypeBadge | UIUserNotificationTypeSound);
-//    UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:userNotificationTypes  categories:nil];
-//    [application registerUserNotificationSettings:settings];
-//    [application registerForRemoteNotifications];
-//
-    [self registerForRemoteNotifications];
+    
+    
+    if(SYSTEM_VERSION_GRATERTHAN_OR_EQUALTO(@"10.0")){
+        UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotificationCenter];
+        // center.delegate = self;
+        [center requestAuthorizationWithOptions:(UNAuthorizationOptionSound | UNAuthorizationOptionAlert | UNAuthorizationOptionBadge) completionHandler:^(BOOL granted, NSError * _Nullable error){
+            if(!error){
+                [[UIApplication sharedApplication] registerForRemoteNotifications];
+            }
+        }];
+    }
+    else {
+        
+        UIUserNotificationType userNotificationTypes = (UIUserNotificationTypeAlert | UIUserNotificationTypeBadge | UIUserNotificationTypeSound);
+        UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:userNotificationTypes  categories:nil];
+        [application registerUserNotificationSettings:settings];
+        [application registerForRemoteNotifications];
+        
+
+        
+               // Code for old versions
+    }
+    
+    
+  //  [self registerForRemoteNotifications];
+    
+    
+
+    
 
     // native notification reciveing
     
     
     return YES;
 }
-
-//- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
-//    // Store the deviceToken in the current Installation and save it to Parse
-//    PFInstallation *currentInstallation = [PFInstallation currentInstallation];
-//    [currentInstallation setDeviceTokenFromData:deviceToken];
-//    [currentInstallation saveInBackground];
-//}
 
 
 
@@ -51,33 +67,35 @@
     token = [token stringByReplacingOccurrencesOfString:@" " withString:@""];
     NSLog(@"content---%@", token);
    
-}
-
-- (void)registerForRemoteNotifications {
-    if(SYSTEM_VERSION_GRATERTHAN_OR_EQUALTO(@"10.0")){
-        UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotificationCenter];
-       // center.delegate = self;
-        [center requestAuthorizationWithOptions:(UNAuthorizationOptionSound | UNAuthorizationOptionAlert | UNAuthorizationOptionBadge) completionHandler:^(BOOL granted, NSError * _Nullable error){
-            if(!error){
-                [[UIApplication sharedApplication] registerForRemoteNotifications];
-            }
-        }];
-    }
-    else {
+    [AppGain RegisterDeviceWithToken:deviceToken];
     
-
-    
-        UIUserNotificationType types = UIUserNotificationTypeBadge |
-        UIUserNotificationTypeSound | UIUserNotificationTypeAlert;
-        
-        UIUserNotificationSettings *mySettings =
-        [UIUserNotificationSettings settingsForTypes:types categories:nil];
-        
-        [[UIApplication sharedApplication] registerUserNotificationSettings:mySettings];
-
-        // Code for old versions
-    }
 }
+//
+//- (void)registerForRemoteNotifications {
+//    if(SYSTEM_VERSION_GRATERTHAN_OR_EQUALTO(@"10.0")){
+//        UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotificationCenter];
+//       // center.delegate = self;
+//        [center requestAuthorizationWithOptions:(UNAuthorizationOptionSound | UNAuthorizationOptionAlert | UNAuthorizationOptionBadge) completionHandler:^(BOOL granted, NSError * _Nullable error){
+//            if(!error){
+//                [[UIApplication sharedApplication] registerForRemoteNotifications];
+//            }
+//        }];
+//    }
+//    else {
+//    
+//
+//    
+//        UIUserNotificationType types = UIUserNotificationTypeBadge |
+//        UIUserNotificationTypeSound | UIUserNotificationTypeAlert;
+//        
+//        UIUserNotificationSettings *mySettings =
+//        [UIUserNotificationSettings settingsForTypes:types categories:nil];
+//        
+//        [[UIApplication sharedApplication] registerUserNotificationSettings:mySettings];
+//
+//        // Code for old versions
+//    }
+//}
 
 
 
@@ -86,24 +104,24 @@
 
 //// avilable for is 10
 ////Called when a notification is delivered to a foreground app.
-//-(void)userNotificationCenter:(UNUserNotificationCenter *)center willPresentNotification:(UNNotification *)notification withCompletionHandler:(void (^)(UNNotificationPresentationOptions options))completionHandler{
-//    NSLog(@"User Info : %@",notification.request.content.userInfo);
-//    completionHandler(UNAuthorizationOptionSound | UNAuthorizationOptionAlert | UNAuthorizationOptionBadge);
-//    
-//}
-//
-////Called to let your app know which action was selected by the user for a given notification.
-//-(void)userNotificationCenter:(UNUserNotificationCenter *)center didReceiveNotificationResponse:(UNNotificationResponse *)response withCompletionHandler:(void(^)())completionHandler{
-//    NSLog(@"User Info : %@",response.notification.request.content.userInfo);
-//    completionHandler();
-//    
-//    NSLog(@"%@",response);
-//    
-//    NSLog(@"%@",center);
-//    
-//    
-//    
-//}
+-(void)userNotificationCenter:(UNUserNotificationCenter *)center willPresentNotification:(UNNotification *)notification withCompletionHandler:(void (^)(UNNotificationPresentationOptions options))completionHandler{
+    NSLog(@"User Info : %@",notification.request.content.userInfo);
+    completionHandler(UNAuthorizationOptionSound | UNAuthorizationOptionAlert | UNAuthorizationOptionBadge);
+    
+}
+
+//Called to let your app know which action was selected by the user for a given notification.
+-(void)userNotificationCenter:(UNUserNotificationCenter *)center didReceiveNotificationResponse:(UNNotificationResponse *)response withCompletionHandler:(void(^)())completionHandler{
+    NSLog(@"User Info : %@",response.notification.request.content.userInfo);
+    completionHandler();
+    
+    NSLog(@"%@",response);
+    
+    NSLog(@"%@",center);
+    
+    
+    
+}
 
 -(void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo{
     
