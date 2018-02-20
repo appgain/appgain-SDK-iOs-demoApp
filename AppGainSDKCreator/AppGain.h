@@ -12,6 +12,7 @@
 #import "UrlData.h"
 /// import all model you need
 #import "DataModels.h"
+#import <Parse.h>
 
 @interface AppGain : NSObject
 +(void)ConfigureApp:( NSString* )key;

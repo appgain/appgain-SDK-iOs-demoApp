@@ -55,12 +55,12 @@
 
 -(void)configuerServerParser{
 
-//    [Parse initializeWithConfiguration:[ParseClientConfiguration configurationWithBlock:^(id<ParseMutableClientConfiguration> configuration) {
-//        configuration.applicationId = @"YOUR_APP_ID";
-//        configuration.clientKey = @"YOUR_CLIENT_KEY";
-//        configuration.server = @"https://parseapi.back4app.com";
-//        configuration.localDatastoreEnabled = YES; // If you need to enable local data store
-//    }]];
+    [Parse initializeWithConfiguration:[ParseClientConfiguration configurationWithBlock:^(id<ParseMutableClientConfiguration> configuration) {
+        configuration.applicationId = @"YOUR_APP_ID";
+        configuration.clientKey = @"YOUR_CLIENT_KEY";
+        configuration.server = @"https://parseapi.back4app.com";
+        configuration.localDatastoreEnabled = YES; // If you need to enable local data store
+    }]];
 
 }
 
@@ -69,32 +69,32 @@
 
 
 - (void)myMethod {
-//    PFUser *user = [PFUser user];
-//    user.username = @"my name";
-//    user.password = @"my pass";
-//    user.email = @"email@example.com";
-//    
-//    // other fields can be set just like with PFObject
-//    user[@"phone"] = @"415-392-0202";
-//    
-//    [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-//        if (!error) {
-//            // get current user to save user parser id in nsuserDefault
-//            PFUser *currentUser = [PFUser currentUser];
-//            if (currentUser) {
-//                // do stuff with the user
-//                
-//                [AppGain CreateLinkMactcherWithUserID:@"" whenFinish:^(NSURLResponse * respose, NSMutableDictionary *result) {
-//                    
-//                }];
-//                
-//            } else {
-//                // show the signup or login screen
-//            }
-//            // Hooray! Let them use the app now.
-//        } else {   NSString *errorString = [error userInfo][@"error"];   // Show the errorString somewhere and let the user try again.
-//        }
-//    }];
+    PFUser *user = [PFUser user];
+    user.username = @"my name";
+    user.password = @"my pass";
+    user.email = @"email@example.com";
+    
+    // other fields can be set just like with PFObject
+    user[@"phone"] = @"415-392-0202";
+    
+    [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        if (!error) {
+            // get current user to save user parser id in nsuserDefault
+            PFUser *currentUser = [PFUser currentUser];
+            if (currentUser) {
+                // do stuff with the user
+                
+                [AppGain CreateLinkMactcherWithUserID:@"" whenFinish:^(NSURLResponse * respose, NSMutableDictionary *result) {
+                    
+                }];
+                
+            } else {
+                // show the signup or login screen
+            }
+            // Hooray! Let them use the app now.
+        } else {   NSString *errorString = [error userInfo][@"error"];   // Show the errorString somewhere and let the user try again.
+        }
+    }];
 }
 
 
