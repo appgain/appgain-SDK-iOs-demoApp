@@ -18,15 +18,17 @@
     [super viewDidLoad];
     
   
-    TargetPlatform *web = [[TargetPlatform new] initWithPrimary:@"iiiiiiooooosss" withFallBack:@""];
     
-    TargetPlatform *android = [[TargetPlatform new] initWithPrimary:@"android" withFallBack:@"aaaaaa"];
-   TargetPlatform *ios =   [[TargetPlatform new] initWithPrimary:@"asdas" withFallBack:@"ffffff"];
+  
+    TargetPlatform *web = [[TargetPlatform new] initWithPrimary:@"https://techcrunch.com/" withFallBack:@""];
+    
+    TargetPlatform *android = [[TargetPlatform new] initWithPrimary:@"sms:01125840548&body=test%20creating" withFallBack:@"tel:01125840548"];
+   TargetPlatform *ios =   [[TargetPlatform new] initWithPrimary:@ "sms:01125840548&body=test%20creating" withFallBack: @"tel:01125840548"];
     
     
     
     /////////create smart linkObject
-    SmartLinkObject *ffff = [[SmartLinkObject new] initWithHeader:@"hello" andImage:@"http://xvxc.xcvxc.cxvx" andDescription:@"welcome to my hotel" andName:@"ragaie" iosTarget:ios androidTarget:android webTarget:web];
+    SmartLinkObject *ffff = [[SmartLinkObject new] initWithHeader:@"hello" andImage:@"https://i.imgur.com/HwieXuR.jpg" andDescription:@"welcome to test description" andName:@"ragaie" iosTarget:ios androidTarget:android webTarget:web];
     
     [ffff setSlug:@"jjjjjj"];
     
@@ -37,7 +39,13 @@
     ////------>
     [AppGain CreateSmartLinkWithObject:ffff whenFinish:^(NSURLResponse * response, NSMutableDictionary * result) {
         
-    }];
+        
+        NSLog(@"%@",response);
+        
+        NSLog(@"%@",result);
+        
+        
+}];
    
     // Do any additional setup after loading the view, typically from a nib.
 }

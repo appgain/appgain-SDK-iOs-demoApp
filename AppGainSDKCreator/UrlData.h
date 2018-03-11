@@ -14,7 +14,7 @@
 @interface UrlData : NSObject
 
 
-+ (NSString*) getAppKeysUrl;
++ (NSString*) getAppKeysUrlWithID :(NSString*)appID ;
 
 + (NSString*) getSmartUrl;
 + (NSString*) getmatcherUrlWithUserID :(NSString*)userID;

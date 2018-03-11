@@ -17,12 +17,13 @@
     
     
     
-    NSMutableURLRequest *urlRequest = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:url]];
+    NSMutableURLRequest *urlRequest = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString: url]];
     
     //create the Method "GET"
     [urlRequest setHTTPMethod:@"GET"];
-    [urlRequest setAllHTTPHeaderFields: @{@"appApiKey": [[SdkKeys new] getAppID]}];
+    [urlRequest setAllHTTPHeaderFields: @{@"appApiKey": [[SdkKeys new] getAppApiKey] }];
     
+   
     
     NSURLSession *session = [NSURLSession sharedSession];
     
@@ -36,6 +37,7 @@
                 if(httpResponse.statusCode == 200)
                 {
                  NSError *parseError = nil;
+                   // NSLog(@"%@",data);
                  responseDictionary = [NSJSONSerialization JSONObjectWithData:data options:0 error:&parseError];
                     // NSLog(@"The response is - %@",responseDictionary);
                     }
@@ -58,14 +60,47 @@
     [urlRequest setHTTPMethod:@"POST"];
     // --header 'appApiKey: <appApiKey>’, 'content-type: application/json'
 
-    [urlRequest setAllHTTPHeaderFields: @{@"appApiKey": [[SdkKeys new] getAppID],@"content-type": @"application/json"}];
+    [urlRequest setAllHTTPHeaderFields: @{@"appApiKey": [[SdkKeys new] getAppApiKey],@"content-type": @"application/json"}];
     //convert body dictionary to nsdata
-    NSData* bodyData =  [NSKeyedArchiver archivedDataWithRootObject:dictionaryBody];
+
+    
+    NSLog(@"---- url sent r : %@", [dictionaryBody description]);
+
+    
+    NSLog(@"---- url sent r : %@", url);
+    NSError *error;
+    NSData *bodyData = [NSJSONSerialization dataWithJSONObject:dictionaryBody
+                                                       options:NSJSONWritingPrettyPrinted // Pass 0 if you don't care about the readability of the generated string
+                                                         error:&error];
+
+    //NSData* bodyData =  [NSKeyedArchiver archivedDataWithRootObject:dictionaryBody];
+    
+    if (! bodyData) {
+        
+        NSLog(@"error parse data%@",error);
+
+    } else {
+        NSString *jsonString = [[NSString alloc] initWithData:bodyData encoding:NSUTF8StringEncoding];
+        NSLog(@"json data sent : %@", jsonString);
+
+    }
+    
+    
     [urlRequest setHTTPBody:bodyData];
     
     NSURLSession *session = [NSURLSession sharedSession];
     NSURLSessionDataTask *dataTask = [session dataTaskWithRequest:urlRequest completionHandler:^(NSData *data, NSURLResponse *response, NSError *error)
         {
+            
+            if (! data) {
+                
+                
+            } else {
+                NSString *jsonString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+                NSLog(@"json data sent : %@", jsonString);
+                
+            }
+            
             //hide network indecator 
         [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:FALSE];
             NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
@@ -75,9 +110,12 @@
                 NSError *parseError = nil;
                 responseDictionary = [NSJSONSerialization JSONObjectWithData:data options:0 error:&parseError];
                     // NSLog(@"The response is - %@",responseDictionary);
-                    }
-                    onComplete(response,responseDictionary);
-                    }];
+            
+            
+            
+            }
+            onComplete(response,responseDictionary);
+            }];
     [dataTask resume];
     
 

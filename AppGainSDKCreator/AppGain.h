@@ -14,8 +14,12 @@
 #import "DataModels.h"
 #import <Parse.h>
 
+
 @interface AppGain : NSObject
-+(void)ConfigureApp:( NSString* )key;
+
++(void)initializeAppWithID:( NSString* )appID andApiKey :(NSString*)appApiKey;
+
+
 +(void)RegisterDeviceWithToken:(NSData*)deviceToken;
 +(void)CreateSmartLinkWithObject:( SmartLinkObject*)linkObject whenFinish:(void (^)(NSURLResponse*, NSMutableDictionary*))onComplete;
 

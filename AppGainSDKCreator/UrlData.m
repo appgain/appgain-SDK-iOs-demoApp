@@ -13,17 +13,19 @@
 @implementation UrlData
 
 
-+(NSString *)getAppKeysUrl{
-    
-    
-    
-    
-    return @"not provided yet";
+//https://api.appgain.it/ 5a805a51673b0f1b4d986bca/initSDK
 
++(NSString *)getAppKeysUrlWithID:(NSString *)appID{
+
+    NSString *urlString =  [NSString stringWithFormat:@"%@%@%@", @"https://api.appgain.it/", appID, @"/initSDK"];
+
+
+    return urlString;
 }
+
 + (NSString*) getSmartUrl{
     
-    NSString *urlString =  [NSString stringWithFormat:@"%@/%@/%@", @"https://api.appgain.io/apps/", [[SdkKeys new] getAppID], @"/smartlinks"];
+    NSString *urlString =  [NSString stringWithFormat:@"%@%@%@", @"https://api.appgain.io/apps/", [[SdkKeys new] getAppID], @"/smartlinks"];
 
     return urlString;
 

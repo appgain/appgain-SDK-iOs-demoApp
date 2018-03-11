@@ -13,29 +13,42 @@
 
 
 //get app keys and configure data
-+(void)ConfigureApp:(NSString *)key{
+
++(void)initializeAppWithID:(NSString *)appID andApiKey:(NSString *)appApiKey{
+
 
     
-    if (![[[SdkKeys new] getParserUserID]  isEqual: @""] ) {
+    if ([[[SdkKeys new] getParserUserID]  isEqual: @""] ) {
     
-   
-    
-    [[SdkKeys new] setAppID:key];
-    [[ServiceLayer new] getRequestWithURL:[UrlData getAppKeysUrl] didFinish:^(NSURLResponse * reponse, NSMutableDictionary * result) {
+        SdkKeys* tempSdkKeys = [SdkKeys new];
+    [tempSdkKeys setAppApiKey:appApiKey];
+    [tempSdkKeys setAppID:appID];
+    [[ServiceLayer new] getRequestWithURL:[UrlData getAppKeysUrlWithID:appID] didFinish:^(NSURLResponse * response, NSMutableDictionary * result) {
         
         
+        if (result != nil){
         
-        //result will have this data
-//        {
-//            "AppID": "5a805a51673b0f1b4d986bca",
-//            "AppSubDomainName": "tyne",
-//            "Parse-AppID": "tyne",
-//            "Parse-masterKey": "MASTER-0cd774c04194d80602df30b1025422ccf4aa2b49069a2e74b434331656a397f1",
-//            "Parse-serverUrl": "http://parse-server-5a79cfc2673b0f650995b8cc-tyne:8036/5a79cfc2673b0f650995b8cc/tyne"
-//        }
-        
-        NSLog(@"%@",result);
-/// call this method configuerServerParser
+//            AppID = 5a805a51673b0f1b4d986bca;
+//            AppSubDomainName = tyne;
+//            "Parse-AppID" = tyne;
+//            "Parse-masterKey" = "MASTER-0cd774c04194d80602df30b1025422ccf4aa2b49069a2e74b434331656a397f1";
+//            "" = "http://parse-server-5a79cfc2673b0f650995b8cc-tyne:8036/5a79cfc2673b0f650995b8cc/tyne";
+//
+           
+            
+            [tempSdkKeys setAppSubDomainName: [result objectForKey:@"AppSubDomainName"]];
+          
+            [tempSdkKeys setParseAppID: [result objectForKey:@"Parse-AppID"]];
+            [tempSdkKeys setParseMasterKey:  [result objectForKey:@"Parse-masterKey"]];
+            [tempSdkKeys setParseServerUrl:  [result objectForKey:@"Parse-serverUrl"]];
+            
+            [AppGain configuerServerParser];
+            
+        }
+        else{
+             NSLog(@"AppGain init application is fail");
+            NSLog(@"%@",response);
+        }
         
     }];
     }
@@ -43,7 +56,7 @@
     
     
     
-        [AppGain CreateLinkMactcherWithUserID:@"" whenFinish:^(NSURLResponse * respose, NSMutableDictionary *result) {
+        [AppGain CreateLinkMactcherWithUserID:[[SdkKeys new] getParserUserID] whenFinish:^(NSURLResponse * respose, NSMutableDictionary *result) {
         
         }];
         
@@ -53,30 +66,54 @@
     
 }
 
--(void)configuerServerParser{
++(void)configuerServerParser{
 
     [Parse initializeWithConfiguration:[ParseClientConfiguration configurationWithBlock:^(id<ParseMutableClientConfiguration> configuration) {
-        configuration.applicationId = @"YOUR_APP_ID";
-        configuration.clientKey = @"YOUR_CLIENT_KEY";
-        configuration.server = @"https://parseapi.back4app.com";
+        
+        SdkKeys * tempkeys = [SdkKeys new];
+        
+        configuration.applicationId = [tempkeys getAppID];
+        configuration.clientKey = [tempkeys getParseMasterKey];//@"YOUR_CLIENT_KEY";
+        configuration.server = [tempkeys getParseServerUrl];//@"https://parseapi.back4app.com";
         configuration.localDatastoreEnabled = YES; // If you need to enable local data store
+        
+      
     }]];
-
+    
+//    [PFUser enableAutomaticUser];
+//    
+//    
+//    [[PFUser new] objectId];
+//    
+//    PFACL *defaultACL = [PFACL ACL];
+//    
+//
+//    // If you would like all objects to be private by default, remove this line.
+//    defaultACL.publicReadAccess = YES;
+//    
+//    [PFACL setDefaultACL:defaultACL withAccessForCurrentUser:YES];
+//
+//    
+    [AppGain myMethod];
 }
 
 
 //then call user id by register new user
 
 
-- (void)myMethod {
-    PFUser *user = [PFUser user];
-    user.username = @"my name";
-    user.password = @"my pass";
-    user.email = @"email@example.com";
++ (void)myMethod {
+    PFUser *user = [PFUser new];
+    
+    [user objectId];
+    NSLog(@"%@", [user objectId]);
+    user.username = @"ragaie";
+    user.password = @"werwerwer";
+    user.email = @"ragaie@gmail.com";
     
     // other fields can be set just like with PFObject
-    user[@"phone"] = @"415-392-0202";
-    
+    user[@"phone"] = @"3920202";
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
+
     [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         if (!error) {
             // get current user to save user parser id in nsuserDefault
@@ -84,15 +121,21 @@
             if (currentUser) {
                 // do stuff with the user
                 
-                [AppGain CreateLinkMactcherWithUserID:@"" whenFinish:^(NSURLResponse * respose, NSMutableDictionary *result) {
+                
+                
+                [AppGain CreateLinkMactcherWithUserID:[[SdkKeys new] getParserUserID] whenFinish:^(NSURLResponse * respose, NSMutableDictionary *result) {
                     
                 }];
                 
-            } else {
-                // show the signup or login screen
             }
-            // Hooray! Let them use the app now.
+            
+            [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+
         } else {   NSString *errorString = [error userInfo][@"error"];   // Show the errorString somewhere and let the user try again.
+            
+            NSLog(@"AppGain Fail to create your id %@",error);
+            [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+
         }
     }];
 }
@@ -102,11 +145,11 @@
 
 +(void)RegisterDeviceWithToken:(NSData*)deviceToken{
     
-//    /// send token to parser server
-//        PFInstallation *currentInstallation = [PFInstallation currentInstallation];
-//        [currentInstallation setDeviceTokenFromData:deviceToken];
-//        [currentInstallation saveInBackground];
-//        
+    /// send token to parser server
+        PFInstallation *currentInstallation = [PFInstallation currentInstallation];
+        [currentInstallation setDeviceTokenFromData:deviceToken];
+        [currentInstallation saveInBackground];
+        
 
 
 
@@ -120,17 +163,12 @@
     
     
     
-    [[ServiceLayer new] postRequestWithURL: [UrlData getSmartUrl] withBodyData: linkObject.description didFinish:^(NSURLResponse * response, NSMutableDictionary *result) {
-        
-        
-        NSLog(@"%@",result);
-        
+    [[ServiceLayer new] postRequestWithURL: [UrlData getSmartUrl] withBodyData: linkObject.dictionaryValue didFinish:^(NSURLResponse * response, NSMutableDictionary *result) {
+       
         dispatch_async(dispatch_get_main_queue(), ^{
             onComplete(response,result);
         });
-
-        
-        
+   
     }];
     
 }

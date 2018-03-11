@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "AppGain.h"
 
 @interface AppDelegate ()
 
@@ -21,6 +22,8 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
+
+    [AppGain initializeAppWithID:@"5a805a51673b0f1b4d986bca" andApiKey:@"b47a061849d5e0104d692dff1544a235628d28e5b55345e57ff715e4b3a5c330"];
     
     
     if(SYSTEM_VERSION_GRATERTHAN_OR_EQUALTO(@"10.0")){
