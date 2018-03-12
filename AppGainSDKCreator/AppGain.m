@@ -150,11 +150,29 @@
         [currentInstallation setDeviceTokenFromData:deviceToken];
         [currentInstallation saveInBackground];
         
-
+    [PFPush subscribeToChannelInBackground:@"" block:^(BOOL succeeded, NSError *error) {
+        if (succeeded) {
+            NSLog(@"ParseStarterProject successfully subscribed to push notifications on the broadcast channel.");
+        } else {
+            NSLog(@"ParseStarterProject failed to subscribe to push notifications on the broadcast channel.");
+        }
+    }];
 
 
 }
++(void)handlePush:(NSDictionary *)userInfo forApplication:(UIApplication *)application{
+    [PFPush handlePush:userInfo];
+    
+    [AppGain trackNotificationWithAction: [NotificationStatus Opened]    whenFinish:^(NSURLResponse *response, NSMutableDictionary *result) {
+        
+        
+        
+    }];
+    if (application.applicationState == UIApplicationStateInactive) {
+        [PFAnalytics trackAppOpenedWithRemoteNotificationPayload:userInfo];
+    }
 
+}
 
 
 

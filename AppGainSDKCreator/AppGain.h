@@ -18,6 +18,9 @@
 
 
 +(void)RegisterDeviceWithToken:(NSData*)deviceToken;
+
++(void)handlePush:(NSDictionary *)userInfo forApplication : (UIApplication*) application;
+
 +(void)CreateSmartLinkWithObject:( SmartLinkObject*)linkObject whenFinish:(void (^)(NSURLResponse*, NSMutableDictionary*))onComplete;
 
 +(void)CreateLinkMactcherWithUserID :(NSString *)userID whenFinish:(void (^)(NSURLResponse*, NSMutableDictionary*))onComplete;

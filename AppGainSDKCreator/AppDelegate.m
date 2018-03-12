@@ -123,7 +123,7 @@
     NSLog(@"User Info : %@",response.notification.request.content.userInfo);
     completionHandler();
     
-    [AppGain trackNotificationWithAction: [NotificationStatus Received]    whenFinish:^(NSURLResponse *response, NSMutableDictionary *result) {
+    [AppGain trackNotificationWithAction: [NotificationStatus Opened]    whenFinish:^(NSURLResponse *response, NSMutableDictionary *result) {
         
         
         
@@ -138,7 +138,9 @@
 
 -(void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo{
     
+  
     
+    [AppGain handlePush:userInfo forApplication:application];
     
 }
 
