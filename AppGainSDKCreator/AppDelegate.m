@@ -55,7 +55,7 @@
     
 
     // native notification reciveing
-    
+  
     
     return YES;
 }
@@ -73,6 +73,11 @@
     [AppGain RegisterDeviceWithToken:deviceToken];
     
 }
+
+
+
+
+
 //
 //- (void)registerForRemoteNotifications {
 //    if(SYSTEM_VERSION_GRATERTHAN_OR_EQUALTO(@"10.0")){
@@ -118,6 +123,11 @@
     NSLog(@"User Info : %@",response.notification.request.content.userInfo);
     completionHandler();
     
+    [AppGain trackNotificationWithAction: [NotificationStatus Received]    whenFinish:^(NSURLResponse *response, NSMutableDictionary *result) {
+        
+        
+        
+    }];
     NSLog(@"%@",response);
     
     NSLog(@"%@",center);

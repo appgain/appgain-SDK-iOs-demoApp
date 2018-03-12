@@ -7,13 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "ServiceLayer.h"
-#import "SdkKeys.h"
-#import "UrlData.h"
+
 /// import all model you need
 #import "DataModels.h"
 #import <Parse.h>
-
 
 @interface AppGain : NSObject
 
@@ -26,5 +23,7 @@
 +(void)CreateLinkMactcherWithUserID :(NSString *)userID whenFinish:(void (^)(NSURLResponse*, NSMutableDictionary*))onComplete;
 +(void)createLandingPageWithObject:(LandingPageObject *)landingPage whenFinish:(void (^)(NSURLResponse*, NSMutableDictionary*))onComplete;
 +(void)CreateAutomatorWithTrigger :(NSString*) trigger andUserId :(NSString*)userID whenFinish:(void (^)(NSURLResponse*, NSMutableDictionary*))onComplete;
+
+
 +(void)trackNotificationWithAction:(NSString*)action whenFinish:(void (^)(NSURLResponse*, NSMutableDictionary*))onComplete;
 @end

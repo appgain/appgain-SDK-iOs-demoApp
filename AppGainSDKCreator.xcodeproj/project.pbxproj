@@ -16,6 +16,7 @@
 		DFAF12CB20323B37000E2677 /* UrlData.m in Sources */ = {isa = PBXBuildFile; fileRef = DFAF12CA20323B37000E2677 /* UrlData.m */; };
 		DFAF12CF203241AC000E2677 /* SdkKeys.m in Sources */ = {isa = PBXBuildFile; fileRef = DFAF12CE203241AC000E2677 /* SdkKeys.m */; };
 		DFAF12D320324A2D000E2677 /* ServiceLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = DFAF12D220324A2D000E2677 /* ServiceLayer.m */; };
+		DFC07F0220573285009D25F0 /* NotificationStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = DFC07F0120573285009D25F0 /* NotificationStatus.m */; };
 		DFD83F6A203385C900575BE2 /* AppGain.m in Sources */ = {isa = PBXBuildFile; fileRef = DFD83F69203385C900575BE2 /* AppGain.m */; };
 		DFD83F7320338F4900575BE2 /* SmartLinkObject.m in Sources */ = {isa = PBXBuildFile; fileRef = DFD83F6E20338F4900575BE2 /* SmartLinkObject.m */; };
 		DFD83F7520338F4900575BE2 /* TargetPlatform.m in Sources */ = {isa = PBXBuildFile; fileRef = DFD83F7220338F4900575BE2 /* TargetPlatform.m */; };
@@ -45,6 +46,8 @@
 		DFAF12CE203241AC000E2677 /* SdkKeys.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SdkKeys.m; sourceTree = "<group>"; };
 		DFAF12D120324A2D000E2677 /* ServiceLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServiceLayer.h; sourceTree = "<group>"; };
 		DFAF12D220324A2D000E2677 /* ServiceLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServiceLayer.m; sourceTree = "<group>"; };
+		DFC07F0020573285009D25F0 /* NotificationStatus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotificationStatus.h; sourceTree = "<group>"; };
+		DFC07F0120573285009D25F0 /* NotificationStatus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotificationStatus.m; sourceTree = "<group>"; };
 		DFD83F68203385C900575BE2 /* AppGain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppGain.h; sourceTree = "<group>"; };
 		DFD83F69203385C900575BE2 /* AppGain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppGain.m; sourceTree = "<group>"; };
 		DFD83F6C20338F4900575BE2 /* DataModels.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataModels.h; sourceTree = "<group>"; };
@@ -182,6 +185,8 @@
 				DFD93EBD20362915003474B9 /* landingPage */,
 				DF45A6172034EE8500316B26 /* smartlink objects */,
 				DFD83F6C20338F4900575BE2 /* DataModels.h */,
+				DFC07F0020573285009D25F0 /* NotificationStatus.h */,
+				DFC07F0120573285009D25F0 /* NotificationStatus.m */,
 			);
 			name = models;
 			sourceTree = "<group>";
@@ -325,7 +330,7 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-AppGainSDKCreator/Pods-AppGainSDKCreator-resources.sh",
-				"$PODS_CONFIGURATION_BUILD_DIR/Parse/Parse.bundle",
+				$PODS_CONFIGURATION_BUILD_DIR/Parse/Parse.bundle,
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
@@ -358,6 +363,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DFC07F0220573285009D25F0 /* NotificationStatus.m in Sources */,
 				DFAF12B920323AE9000E2677 /* ViewController.m in Sources */,
 				DFD93EC020362931003474B9 /* LandingPageObject.m in Sources */,
 				DFD93EC92036394B003474B9 /* LandingButton.m in Sources */,
