@@ -45,6 +45,8 @@ typedef void(^PFUserLogoutResultBlock)(NSError *_Nullable error);
  */
 + (nullable instancetype)currentUser;
 
+- (NSString*)getUserID;
+
 /**
  *Asynchronously* loads the currently logged in user from disk and returns a task that encapsulates it.
 
@@ -114,6 +116,7 @@ typedef void(^PFUserLogoutResultBlock)(NSError *_Nullable error);
  The email for the `PFUser`.
  */
 @property (nullable, nonatomic, strong) NSString *email;
+
 
 /**
  Signs up the user *asynchronously*.

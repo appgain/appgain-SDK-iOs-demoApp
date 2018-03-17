@@ -783,6 +783,17 @@ static BOOL revocableSessionEnabled_;
     return [[self getCurrentUserInBackground] waitForResult:nil withMainThreadWarning:NO];
 }
 
+// add by ragaie
+-(NSString *)getUserID{
+
+    
+    [_authData objectForKey:@"anonymous"];
+   // NSLog(@" your parser id %@",[[_authData objectForKey:@"anonymous"] objectForKey:@"id"]);
+    return [[_authData objectForKey:@"anonymous"] objectForKey:@"id"];
+
+
+}
+
 + (BFTask<__kindof PFUser *> *)getCurrentUserInBackground {
     return [[[self class] currentUserController] getCurrentObjectAsync];
 }

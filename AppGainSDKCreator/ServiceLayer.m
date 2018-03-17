@@ -92,21 +92,22 @@
     NSURLSessionDataTask *dataTask = [session dataTaskWithRequest:urlRequest completionHandler:^(NSData *data, NSURLResponse *response, NSError *error)
         {
             
-            if (! data) {
-                
-                
-            } else {
-                NSString *jsonString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-                NSLog(@"json data sent : %@", jsonString);
-                
-            }
+//            if (! data) {
+//                
+//                
+//            } else {
+//                NSString *jsonString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+//                NSLog(@"json data sent : %@", jsonString);
+//                
+//            }
             
             //hide network indecator 
         [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:FALSE];
             NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
             NSMutableDictionary *responseDictionary;// = [NSMutableDictionary new];
-            if(httpResponse.statusCode == 200)
+            if(data != nil )
             {
+            
                 NSError *parseError = nil;
                 responseDictionary = [NSJSONSerialization JSONObjectWithData:data options:0 error:&parseError];
                     // NSLog(@"The response is - %@",responseDictionary);

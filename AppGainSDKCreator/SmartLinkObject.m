@@ -58,15 +58,15 @@
 //
     
     NSDictionary *details = @{@"name" :_linkName,
-                              @"slug":_slug,
+                             // @"slug":_slug,
                               @"image":_imageUrl,
                               @"description":_linkDescription,
                               @"launch_page":@{@"header":_header},
-            @"targetes":
+            @"targates":
                     @{@"ios":
                           @{@"primary":_iosPlatform.primary,@"fallback":_iosPlatform.fallback},
                       @"android":@{@"primary":_androidPlatform.primary,@"fallback":_androidPlatform.fallback},
-                      @"web":@{@"primary":_webPlatform.primary,@"fallback":_webPlatform.fallback}
+                      @"web":_webPlatform.primary
                       
                       }//end target
                               }; //end of all dictionary

@@ -24,8 +24,7 @@
 }
 
 + (NSString*) getSmartUrl{
-    
-    NSString *urlString =  [NSString stringWithFormat:@"%@%@%@", @"https://api.appgain.io/apps/", [[SdkKeys new] getAppID], @"/smartlinks"];
+    NSString *urlString =  [NSString stringWithFormat:@"%@%@%@", @"https://api.appgain.it/apps/", [[SdkKeys new] getAppID], @"/smartlinks"];
 
     return urlString;
 
@@ -47,7 +46,7 @@
 + (NSString*) getLandingPageUrl{
     //https://api.appgain.io/apps/<AppID>landingpages
     
-    NSString *urlString =  [NSString stringWithFormat:@"%@%@%@", @"https://api.appgain.io/apps/", [[SdkKeys new] getAppID], @"/landingpages"];
+    NSString *urlString =  [NSString stringWithFormat:@"%@%@%@", @"https://api.appgain.it/apps/", [[SdkKeys new] getAppID], @"/landingpages"];
     
     return urlString;
     
@@ -71,7 +70,7 @@
     SdkKeys *temp = [SdkKeys new];
 
     
-    NSString *urlString =  [NSString stringWithFormat:@"%@%@%@%@%@%@", @"https://automator.appgain.io/automessages/", [temp getAppID], @"/firevent/",trigger,@"/",[temp getParserUserID]];
+    NSString *urlString =  [NSString stringWithFormat:@"%@%@%@%@%@%@", @"https://automator.appgain.it/automessages/", [temp getAppID], @"/firevent/",trigger,@"/",[temp getParserUserID]];
     
     return urlString;
  

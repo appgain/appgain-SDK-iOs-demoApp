@@ -24,24 +24,17 @@
     [tempSdkKeys setAppApiKey:appApiKey];
     [tempSdkKeys setAppID:appID];
     [[ServiceLayer new] getRequestWithURL:[UrlData getAppKeysUrlWithID:appID] didFinish:^(NSURLResponse * response, NSMutableDictionary * result) {
-        
+      //done
+        //  NSLog(@"- init  response ==%@",response);
+      //  NSLog(@"- init matcher  result ==%@",result);
         
         if (result != nil){
-        
-//            AppID = 5a805a51673b0f1b4d986bca;
-//            AppSubDomainName = tyne;
-//            "Parse-AppID" = tyne;
-//            "Parse-masterKey" = "MASTER-0cd774c04194d80602df30b1025422ccf4aa2b49069a2e74b434331656a397f1";
-//            "" = "http://parse-server-5a79cfc2673b0f650995b8cc-tyne:8036/5a79cfc2673b0f650995b8cc/tyne";
-//
-           
-            
+
             [tempSdkKeys setAppSubDomainName: [result objectForKey:@"AppSubDomainName"]];
           
             [tempSdkKeys setParseAppID: [result objectForKey:@"Parse-AppID"]];
             [tempSdkKeys setParseMasterKey:  [result objectForKey:@"Parse-masterKey"]];
             [tempSdkKeys setParseServerUrl:  [result objectForKey:@"Parse-serverUrl"]];
-            
             [AppGain configuerServerParser];
             
         }
@@ -53,11 +46,10 @@
     }];
     }
     else{
-    
-    
-    
-        [AppGain CreateLinkMactcherWithUserID:[[SdkKeys new] getParserUserID] whenFinish:^(NSURLResponse * respose, NSMutableDictionary *result) {
-        
+        [AppGain CreateLinkMactcherWithUserID:[[SdkKeys new] getParserUserID] whenFinish:^(NSURLResponse * response, NSMutableDictionary *result) {
+            
+            NSLog(@"- link matcher  response ==%@",response);
+            NSLog(@"- link matcher  result ==%@",result);
         }];
         
         
@@ -80,32 +72,45 @@
       
     }]];
     
-//    [PFUser enableAutomaticUser];
-//    
-//    
-//    [[PFUser new] objectId];
-//    
-//    PFACL *defaultACL = [PFACL ACL];
-//    
+    [PFUser enableAutomaticUser];
+    
+    
+     [[PFUser new] objectId];
+    
+    
+    PFACL *defaultACL = [PFACL ACL];
+    
 //
 //    // If you would like all objects to be private by default, remove this line.
-//    defaultACL.publicReadAccess = YES;
+    defaultACL.publicReadAccess = YES;
 //    
-//    [PFACL setDefaultACL:defaultACL withAccessForCurrentUser:YES];
-//
-//    
-    [AppGain myMethod];
+    [PFACL setDefaultACL:defaultACL withAccessForCurrentUser:YES];
+
+    PFUser *currentUser = [PFUser currentUser];
+    ///[5316:118939]
+    //[5381:119745]
+    NSString *tempUsrParserID = [currentUser getUserID];
+    NSLog(@"--parser id %@", tempUsrParserID);
+    
+    
+    [[SdkKeys new] setParserUserID:tempUsrParserID];
+    [currentUser getUserID];
+  //  [AppGain createUserID];
 }
 
 
 //then call user id by register new user
 
 
-+ (void)myMethod {
++ (void)createUserID {
     PFUser *user = [PFUser new];
     
-    [user objectId];
-    NSLog(@"%@", [user objectId]);
+    PFUser *currentUser = [PFUser currentUser];
+///[5316:118939]
+    //[5381:119745] 
+    NSLog(@"%@", [currentUser sessionToken]);
+    
+    [currentUser getUserID];
     user.username = @"ragaie";
     user.password = @"werwerwer";
     user.email = @"ragaie@gmail.com";
@@ -114,15 +119,17 @@
     user[@"phone"] = @"3920202";
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
 
-    [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+    [[PFUser currentUser] signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        PFUser *currentUser = [PFUser currentUser];
+
+        NSLog(@"%@", [currentUser description] );
+
+        
         if (!error) {
             // get current user to save user parser id in nsuserDefault
             PFUser *currentUser = [PFUser currentUser];
             if (currentUser) {
                 // do stuff with the user
-                
-                
-                
                 [AppGain CreateLinkMactcherWithUserID:[[SdkKeys new] getParserUserID] whenFinish:^(NSURLResponse * respose, NSMutableDictionary *result) {
                     
                 }];

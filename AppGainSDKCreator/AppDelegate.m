@@ -23,9 +23,10 @@
     // Override point for customization after application launch.
     
 
-    [AppGain initializeAppWithID:@"5a805a51673b0f1b4d986bca" andApiKey:@"b47a061849d5e0104d692dff1544a235628d28e5b55345e57ff715e4b3a5c330"];
+    [AppGain initializeAppWithID:@"5aa948bd38f24a01e6d68966" andApiKey:@"25e0d4002e4f4f13068a8c01c4c4b9eae012912714ca8218f63ed452095e9973"];
+
     
-    
+   //MARK: setting for push notification
     if(SYSTEM_VERSION_GRATERTHAN_OR_EQUALTO(@"10.0")){
         UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotificationCenter];
         // center.delegate = self;

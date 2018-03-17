@@ -24,7 +24,7 @@
     
     self = [super init];
     if(self) {
-        _title = iosurlTarget;
+        _title = title;
         _type = @"basic.btn";
         _iosUrlTarget = iosurlTarget;
         _androidUrlTarget = androidUrlTarget;
@@ -45,6 +45,19 @@
 //				"web": "[input]"
 //}}
 -(NSDictionary *)dictionaryValue{
+    
+    
+//    
+//    {
+//        "type": "basic.btn",
+//        "text": "test first button",
+//        "alt-text": "test first button",
+//        "targets": {
+//            "ios": "sms:01125840548&body=test%20creating",
+//            "android": "tel:01125840548",
+//            "web": "Openpopup://param?title=test%20landingpage%20popup&text=this%20is%20my%20test%20data%20to%20test%20popup"
+//        }
+//    },
     
     NSDictionary *details = @{@"type":_type,@"text":_title,@"targets":@{@"ios":_iosUrlTarget,@"android":_androidUrlTarget,@"web":_webUrlTarget}};
     

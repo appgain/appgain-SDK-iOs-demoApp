@@ -53,22 +53,17 @@
 }
 
 -(NSDictionary*)headerPage{
-    
-    //                       ///
-    //                       "type": "basic.h+logo",
-    //                       "logo": {
-    //                           "src": "[input. Image url ]},
-    //                           "header": {
-    //                               "text": "[input ]"
-    //                           }
-    //                       },
-    //
-    //                       { ////prgraphe data
-    //                           "type": "basic.p",
-    //                           "content": "[input text ] "
-    //                       },
-    
-    NSDictionary *details = @{@"type":@"basic.h+logo",@"logo":@{@"src":_LogoUrl,@"header":@{@"text":_header}}};
+//    
+//    {
+//        "type": "basic.h+logo",
+//        "logo": {
+//            "src": "https://i.imgur.com/HwieXuR.jpg"
+//        },
+//        "header": {
+//            "text": "test create landingpage"
+//        }
+//    },
+    NSDictionary *details = @{@"type":@"basic.h+logo",@"logo":@{@"src":_LogoUrl},@"header":@{@"text":_header}};
     
     return details;
     
@@ -105,12 +100,17 @@
     }
     
     
-    NSDictionary *details = @{@"type":@"basic.slider",@"slider":images,@"speed":@"3000",@"direction":@"horizontal",@"autoplay":@"4000"};
+    NSDictionary *details = @{@"type":@"basic.slider",@"slider":images,@"speed":@3000,@"direction":@"horizontal",@"autoplay":@4000};
     return details;
 }
 
--(NSDictionary*)buttonsValues{
+-(NSArray*)buttonsValues{
+    
+    // return first object only
+   // return  [_Buttons.firstObject dictionaryValue];
+    
     NSMutableArray *buttons = [NSMutableArray new];
+
     for (LandingButton *item in _Buttons) {
         
         
@@ -119,62 +119,93 @@
     }
     
     
-    //    {
-    //        "type": "basic.btn",
-    //
-    //        "text": "[input text ]”,  //button title
-    //        "targets": {
-    //            "ios": “[url when click from iOS ]",
-    //            "android": "[input]",
-    //            "web": "[input]"
-    //        }
-    //    }
-    
-    NSDictionary *details = @{};
-    return details;
+
+    return buttons;
 }
 
 -(NSDictionary *)dictionaryValue{
-//    "components": [
-//                   {
-//                       ///
-//                       "type": "basic.h+logo",
-//                       "logo": {
-//                           "src": "[input. Image url ]},
+    {
+//        "lang": "en",
+//        "web_push_subscription": true,
+//        "components": [
+//                       {
+//                           "type": "basic.h+logo",
+//                           "logo": {
+//                               "src": "https://i.imgur.com/HwieXuR.jpg"
+//                           },
 //                           "header": {
-//                               "text": "[input ]"
+//                               "text": "test create landingpage"
 //                           }
 //                       },
-//                       
-//                       { ////prgraphe data
+//                       {
 //                           "type": "basic.p",
-//                           "content": "[input text ] "
+//                           "content": "this is a test for creating landingpage"
 //                       },
-//                       
-//                       ////———————————————————————————— this for button maybe more than button—>>> Done
 //                       {
 //                           "type": "basic.btn",
-//                           "text": "[input text ]”,  //button title 
-//                           "targets": { 
-//                               "ios": “[url when click from iOS ]",
-//                               "android": "[input]",
-//                               "web": "[input]"
+//                           "text": "test first button",
+//                           "alt-text": "test first button",
+//                           "targets": {
+//                               "ios": "sms:01125840548&body=test%20creating",
+//                               "android": "tel:01125840548",
+//                               "web": "Openpopup://param?title=test%20landingpage%20popup&text=this%20is%20my%20test%20data%20to%20test%20popup"
 //                           }
 //                       },
+//                       {
+//                           "type": "basic.slider",
+//                           "slider": [
+//                                      {
+//                                          "src": "https://i.imgur.com/JcLINOb.png",
+//                                          "text": "first photo"
+//                                      },
+//                                      {
+//                                          "src": "https://i.imgur.com/HwieXuR.jpg",
+//                                          "text": "second photo"
+//                                      },
+//                                      {
+//                                          "src": "https://i.imgur.com/01Ek82M.jpg",
+//                                          "text": "third photo"
+//                                      }
+//                                      ],
+//                           "speed": 3000,
+//                           "direction": "horizontal",
+//                           "autoplay": 4000
+//                       }
+//                       ],
+//        "socialmedia_settings": {
+//            "title": "test create",
+//            "description": "test create landingpage",
+//            "image": "https://i.imgur.com/HwieXuR.jpg"
+//        },
+//        "label": "testcreate",
+//        "image_default": false
+//    }
+//    
 
-    NSDictionary *details = @{@"lang" :_lang,@"web_push_subscription":@"true",@"label":_label,@"slug"    :_slug,@"image_default":@"false",
-            @"components":
-                    @[self.headerPage,@{@"type":@"basic.p",@"content":_paragraph},self.sliderValue,self.buttonsValues],
-
+        NSMutableArray * components = [NSMutableArray arrayWithObjects:self.headerPage,@{@"type":@"basic.p",@"content":_paragraph}, self.sliderValue, nil];
+        
+        
+        [components addObjectsFromArray:[self buttonsValues]];
+        
+        
+        
+    NSDictionary *details = @{@"lang" :_lang,
+                              @"web_push_subscription":@YES,
+                              @"label":_label,
+                              //@"slug"    :_slug,
+                              @"image_default":@NO,
+            @"components": components,
             @"socialmedia_settings":_socialSetting.dictionaryValue,
         };
-                              
+        
+        
+        //[[NSMutableArray arrayWithObjects:@"", nil] ]
                               
     return details;
 
 
 }
-
+}
 
 //{
 //    "lang": "en",

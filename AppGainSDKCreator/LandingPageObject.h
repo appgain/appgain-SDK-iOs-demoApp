@@ -34,7 +34,7 @@
 
 
 
-- (LandingPageObject*)initWithLogo :(NSString*)logoUrl andHeader :(NSString*) header andParagraph :(NSString*) paragraph withSliderUrlImages:(NSArray*)images andButtons:(NSArray*) buttons andSocialMediaSetting :(SocialmediaSettings*) mediaSetting language: (NSString*)lang andSubscription : (NSString*) sub andimage:(NSString*) image andlabel :(NSString*)label;
+- (LandingPageObject*)initWithLogo :(NSString*)logoUrl andHeader :(NSString*) header andParagraph :(NSString*) paragraph withSliderUrlImages:(NSArray*)images andButtons:(NSArray*) button andSocialMediaSetting :(SocialmediaSettings*) mediaSetting language: (NSString*)lang andSubscription : (NSString*) sub andimage:(NSString*) image andlabel :(NSString*)label;
 
 
 
