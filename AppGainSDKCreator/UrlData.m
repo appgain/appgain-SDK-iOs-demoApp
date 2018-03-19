@@ -35,10 +35,15 @@
     
 //https://[AppSubDomainName].appgain.io/i/smartlinks/match[?userId= parser user id ]&[isfirstRun=true|false]&[appuserId=APP userID] <- may can optional
 //
-   // 'https://frstflight.appgain.io/smartlinks/match?isfirstRun=true
-    NSString *urlString =  [NSString stringWithFormat:@"%@%@%@%@%@%@%@%@", @"https://", [temp getAppSubDomainName], @".appgain.io/smartlinks/match?userId=",[temp getParserUserID],@"&isfirstRun=",[temp getFirstRun],@"&appuserId=",[temp getParserUserID]];
     
-    return urlString;
+    
+    //
+    //'https://frstflght.appgain.it/smartlinks/match?isfirstRun=true'\
+    
+    
+    NSString *urlStringg  = [NSString stringWithFormat:@"%@%@%@%@%@%@%@%@", @"https://", [temp getAppSubDomainName], @".appgain.it/smartlinks/match?isfirstRun=" , [temp getFirstRun] , @"&userId=",[temp getParserUserID] , @"&appuserId=",userID];
+    
+    return urlStringg;
 
     
    
@@ -56,7 +61,7 @@
 + (NSString*) getnotificationTrackUrl{
     
     
-    NSString *urlString =  [NSString stringWithFormat:@"%@/%@/%@", @"https://notify.appgain.io/", [[SdkKeys new] getAppID], @"/recordstatus"];
+    NSString *urlString =  [NSString stringWithFormat:@"%@%@/%@", @"https://notify.appgain.io/", [[SdkKeys new] getAppID], @"/recordstatus"];
 
     return urlString;
 

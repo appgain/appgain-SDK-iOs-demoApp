@@ -94,8 +94,19 @@
     
     
     [[SdkKeys new] setParserUserID:tempUsrParserID];
-    [currentUser getUserID];
-  //  [AppGain createUserID];
+  // after get user id send matcher link for app
+    
+    [AppGain CreateLinkMactcherWithUserID:[[SdkKeys new] getParserUserID] whenFinish:^(NSURLResponse * response, NSMutableDictionary *result) {
+        
+        
+        
+        NSLog(@"%@",response);
+        
+        NSLog(@"%@",result);
+    }];
+    
+    
+    
 }
 
 
