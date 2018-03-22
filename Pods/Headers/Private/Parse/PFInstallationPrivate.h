@@ -1,1 +1,1 @@
-../../../Parse/Parse/Parse/Internal/Installation/PFInstallationPrivate.h
+../../../Parse/Parse/Internal/Installation/PFInstallationPrivate.h

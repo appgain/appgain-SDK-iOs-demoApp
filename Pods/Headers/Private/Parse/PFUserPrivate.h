@@ -1,1 +1,1 @@
-../../../Parse/Parse/Parse/Internal/User/PFUserPrivate.h
+../../../Parse/Parse/Internal/User/PFUserPrivate.h

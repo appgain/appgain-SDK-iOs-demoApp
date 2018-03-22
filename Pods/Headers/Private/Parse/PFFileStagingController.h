@@ -1,1 +1,1 @@
-../../../Parse/Parse/Parse/Internal/File/Controller/PFFileStagingController.h
+../../../Parse/Parse/Internal/File/Controller/PFFileStagingController.h

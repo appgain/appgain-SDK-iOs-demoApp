@@ -1,1 +1,1 @@
-../../../Parse/Parse/Parse/Internal/Commands/PFRESTQueryCommand.h
+../../../Parse/Parse/Internal/Commands/PFRESTQueryCommand.h

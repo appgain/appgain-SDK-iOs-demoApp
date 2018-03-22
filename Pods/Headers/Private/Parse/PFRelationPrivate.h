@@ -1,1 +1,1 @@
-../../../Parse/Parse/Parse/Internal/Relation/PFRelationPrivate.h
+../../../Parse/Parse/Internal/Relation/PFRelationPrivate.h

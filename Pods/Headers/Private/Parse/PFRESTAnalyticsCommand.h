@@ -1,1 +1,1 @@
-../../../Parse/Parse/Parse/Internal/Commands/PFRESTAnalyticsCommand.h
+../../../Parse/Parse/Internal/Commands/PFRESTAnalyticsCommand.h

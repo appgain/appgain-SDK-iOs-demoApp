@@ -1,1 +1,1 @@
-../../../Parse/Parse/Parse/PFUser+Deprecated.h
+../../../Parse/Parse/PFUser+Deprecated.h

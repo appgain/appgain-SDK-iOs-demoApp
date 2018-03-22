@@ -1,1 +1,1 @@
-../../../Parse/Parse/Parse/Internal/Object/Coder/File/PFObjectFileCodingLogic.h
+../../../Parse/Parse/Internal/Object/Coder/File/PFObjectFileCodingLogic.h

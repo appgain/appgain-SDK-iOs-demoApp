@@ -1,1 +1,1 @@
-../../../Parse/Parse/Parse/Internal/PFApplication.h
+../../../Parse/Parse/Internal/PFApplication.h

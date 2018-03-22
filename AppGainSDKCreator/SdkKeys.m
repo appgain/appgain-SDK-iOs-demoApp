@@ -143,8 +143,8 @@
     
     if (theKey == NULL ){
         
-        [self setFirstRun:@NO];
-        return @YES;
+        [self setFirstRun:@FALSE];
+        return @TRUE;
     }
     return theKey;
 }

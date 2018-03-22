@@ -1,1 +1,1 @@
-../../../Parse/Parse/Parse/Internal/PFLocationManager.h
+../../../Parse/Parse/Internal/PFLocationManager.h

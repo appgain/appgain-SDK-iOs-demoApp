@@ -1,1 +1,1 @@
-../../../Parse/Parse/Parse/Internal/LocalDataStore/SQLite/PFSQLiteDatabaseController.h
+../../../Parse/Parse/Internal/LocalDataStore/SQLite/PFSQLiteDatabaseController.h

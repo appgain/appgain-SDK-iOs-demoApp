@@ -13,18 +13,16 @@
 @implementation UrlData
 
 
-//https://api.appgain.it/ 5a805a51673b0f1b4d986bca/initSDK
-
 +(NSString *)getAppKeysUrlWithID:(NSString *)appID{
 
-    NSString *urlString =  [NSString stringWithFormat:@"%@%@%@", @"https://api.appgain.it/", appID, @"/initSDK"];
+    NSString *urlString =  [NSString stringWithFormat:@"%@%@%@", @"https://api.appgain.io/", appID, @"/initSDK"];
 
 
     return urlString;
 }
 
 + (NSString*) getSmartUrl{
-    NSString *urlString =  [NSString stringWithFormat:@"%@%@%@", @"https://api.appgain.it/apps/", [[SdkKeys new] getAppID], @"/smartlinks"];
+    NSString *urlString =  [NSString stringWithFormat:@"%@%@%@", @"https://api.appgain.io/apps/", [[SdkKeys new] getAppID], @"/smartlinks"];
 
     return urlString;
 
@@ -34,14 +32,20 @@
     SdkKeys *temp = [SdkKeys new];
     
 //https://[AppSubDomainName].appgain.io/i/smartlinks/match[?userId= parser user id ]&[isfirstRun=true|false]&[appuserId=APP userID] <- may can optional
-//
-    
-    
-    //
+
     //'https://frstflght.appgain.it/smartlinks/match?isfirstRun=true'\
     
+    NSString *userIDD = userID;
+    if ( [userID isEqualToString:@""]){
+        
+        userIDD = [temp getParserUserID];
+        
+    }
+   
+   
     
-    NSString *urlStringg  = [NSString stringWithFormat:@"%@%@%@%@%@%@%@%@", @"https://", [temp getAppSubDomainName], @".appgain.it/smartlinks/match?isfirstRun=" , [temp getFirstRun] , @"&userId=",[temp getParserUserID] , @"&appuserId=",userID];
+    
+    NSString *urlStringg  = [NSString stringWithFormat:@"%@%@%@%@%@%@", @"https://", [temp getAppSubDomainName], @".appgain.io/smartlinks/match?isfirstRun=" , [temp getFirstRun] , @"&userId=",userIDD];
     
     return urlStringg;
 
@@ -51,7 +55,7 @@
 + (NSString*) getLandingPageUrl{
     //https://api.appgain.io/apps/<AppID>landingpages
     
-    NSString *urlString =  [NSString stringWithFormat:@"%@%@%@", @"https://api.appgain.it/apps/", [[SdkKeys new] getAppID], @"/landingpages"];
+    NSString *urlString =  [NSString stringWithFormat:@"%@%@%@", @"https://api.appgain.io/apps/", [[SdkKeys new] getAppID], @"/landingpages"];
     
     return urlString;
     
@@ -61,7 +65,7 @@
 + (NSString*) getnotificationTrackUrl{
     
     
-    NSString *urlString =  [NSString stringWithFormat:@"%@%@/%@", @"https://notify.appgain.io/", [[SdkKeys new] getAppID], @"/recordstatus"];
+    NSString *urlString =  [NSString stringWithFormat:@"%@%@%@", @"https://notify.appgain.io/", [[SdkKeys new] getAppID], @"/recordstatus"];
 
     return urlString;
 
@@ -74,8 +78,8 @@
  //   point name]/[userId]
     SdkKeys *temp = [SdkKeys new];
 
-    
-    NSString *urlString =  [NSString stringWithFormat:@"%@%@%@%@%@%@", @"https://automator.appgain.it/automessages/", [temp getAppID], @"/firevent/",trigger,@"/",[temp getParserUserID]];
+
+    NSString *urlString =  [NSString stringWithFormat:@"%@%@%@%@%@%@", @"https://automator.appgain.io/automessages/", [temp getAppID], @"/firevent/",trigger,@"/",[temp getParserUserID]];
     
     return urlString;
  

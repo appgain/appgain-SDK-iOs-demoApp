@@ -1,1 +1,1 @@
-../../../Parse/Parse/Parse/Internal/ParseClientConfiguration_Private.h
+../../../Parse/Parse/Internal/ParseClientConfiguration_Private.h

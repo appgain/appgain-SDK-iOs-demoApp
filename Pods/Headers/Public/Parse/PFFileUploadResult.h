@@ -1,1 +1,1 @@
-../../../Parse/Parse/Parse/PFFileUploadResult.h
+../../../Parse/Parse/PFFileUploadResult.h

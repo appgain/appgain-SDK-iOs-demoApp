@@ -1,1 +1,1 @@
-../../../Parse/Parse/Parse/PFObject+Deprecated.h
+../../../Parse/Parse/PFObject+Deprecated.h

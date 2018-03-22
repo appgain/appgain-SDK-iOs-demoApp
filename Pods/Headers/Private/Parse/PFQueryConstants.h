@@ -1,1 +1,1 @@
-../../../Parse/Parse/Parse/Internal/Query/PFQueryConstants.h
+../../../Parse/Parse/Internal/Query/PFQueryConstants.h

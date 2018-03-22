@@ -1,1 +1,1 @@
-../../../Parse/Parse/Parse/Internal/PFAlertView.h
+../../../Parse/Parse/Internal/PFAlertView.h

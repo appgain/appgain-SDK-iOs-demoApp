@@ -1,1 +1,1 @@
-../../../Parse/Parse/Parse/Internal/PFCoreManager.h
+../../../Parse/Parse/Internal/PFCoreManager.h

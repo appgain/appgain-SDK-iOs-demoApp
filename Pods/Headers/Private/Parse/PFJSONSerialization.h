@@ -1,1 +1,1 @@
-../../../Parse/Parse/Parse/Internal/PFJSONSerialization.h
+../../../Parse/Parse/Internal/PFJSONSerialization.h

@@ -23,7 +23,7 @@
     // Override point for customization after application launch.
     
 
-    [AppGain initializeAppWithID:@"5aa948bd38f24a01e6d68966" andApiKey:@"25e0d4002e4f4f13068a8c01c4c4b9eae012912714ca8218f63ed452095e9973"];
+    [AppGain initializeAppWithID:@"5a53f622e725ee001719ffd2" andApiKey:@"08a19262a242a074b0cd2f143df75c8971f121af9c50a39fa9c32eb605dfc388"];
 
     
    //MARK: setting for push notification
@@ -49,7 +49,6 @@
     }
     
     
-  //  [self registerForRemoteNotifications];
     
     
 
@@ -60,6 +59,27 @@
     
     return YES;
 }
+
+
+- (void)registerApplicationForPushNotifications:(UIApplication *)application
+{
+    // Set up push notifications
+    // For more information about Push, check out:
+    // https://developer.layer.com/docs/ios/guides#push-notification
+    
+    // Checking if app is running iOS 8
+    if ([application respondsToSelector:@selector(registerForRemoteNotifications)]) {
+        // Register device for iOS8
+        UIUserNotificationSettings *notificationSettings = [UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert | UIUserNotificationTypeBadge | UIUserNotificationTypeSound categories:nil];
+        [application registerUserNotificationSettings:notificationSettings];
+        [application registerForRemoteNotifications];
+    } else {
+        // Register device for iOS7
+        [application registerForRemoteNotificationTypes:UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeBadge];
+    }
+    
+}
+
 
 
 
@@ -121,25 +141,21 @@
 
 //Called to let your app know which action was selected by the user for a given notification.
 -(void)userNotificationCenter:(UNUserNotificationCenter *)center didReceiveNotificationResponse:(UNNotificationResponse *)response withCompletionHandler:(void(^)())completionHandler{
+    
     NSLog(@"User Info : %@",response.notification.request.content.userInfo);
     completionHandler();
     
-    [AppGain trackNotificationWithAction: [NotificationStatus Opened]    whenFinish:^(NSURLResponse *response, NSMutableDictionary *result) {
+    [AppGain trackNotificationWithAction:[NotificationStatus Opened] andUserInfo:response.notification.request.content.userInfo   whenFinish:^(NSURLResponse *response, NSMutableDictionary *result) {
         
         
         
     }];
-    NSLog(@"%@",response);
-    
-    NSLog(@"%@",center);
-    
-    
+   
     
 }
 
 -(void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo{
-    
-  
+    NSLog(@"User Info : %@",userInfo);
     
     [AppGain handlePush:userInfo forApplication:application];
     

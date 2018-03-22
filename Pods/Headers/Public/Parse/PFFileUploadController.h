@@ -1,1 +1,1 @@
-../../../Parse/Parse/Parse/PFFileUploadController.h
+../../../Parse/Parse/PFFileUploadController.h

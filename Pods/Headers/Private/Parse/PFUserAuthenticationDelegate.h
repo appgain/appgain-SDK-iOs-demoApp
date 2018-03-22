@@ -1,1 +1,1 @@
-../../../Parse/Parse/Parse/PFUserAuthenticationDelegate.h
+../../../Parse/Parse/PFUserAuthenticationDelegate.h

@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="0qJ-oj-YXY">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--AppGain.io-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
@@ -21,45 +22,149 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dBL-nI-Gfd">
-                                <rect key="frame" x="120" y="117" width="135" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="create smart link"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dBL-nI-Gfd">
+                                <rect key="frame" x="120" y="244" width="135" height="30"/>
+                                <color key="backgroundColor" red="0.028502386063337326" green="0.34687680006027222" blue="0.65174216032028198" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="135" id="qFX-qR-yot"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                <state key="normal" title="Create smart link">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <integer key="value" value="15"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="createSmartLink:" destination="BYZ-38-t0r" eventType="touchUpInside" id="dfW-qp-VQu"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cQw-2a-DqQ">
-                                <rect key="frame" x="125" y="224" width="124" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="landing page "/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cQw-2a-DqQ">
+                                <rect key="frame" x="105" y="104" width="164" height="30"/>
+                                <color key="backgroundColor" red="0.023422781378030777" green="0.31811070442199707" blue="0.5967792272567749" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="164" id="mtX-kX-Wwy"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                <state key="normal" title="Create landing page ">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <integer key="value" value="15"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="createLandingPage:" destination="BYZ-38-t0r" eventType="touchUpInside" id="i3e-L8-vC1"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QsT-Kv-YwV">
-                                <rect key="frame" x="164" y="496" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dD5-h1-Va8">
-                                <rect key="frame" x="164" y="587" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sGZ-yl-65W">
-                                <rect key="frame" x="145" y="355" width="85" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Automater "/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sGZ-yl-65W">
+                                <rect key="frame" x="115" y="175" width="144" height="30"/>
+                                <color key="backgroundColor" red="0.028502386063337326" green="0.34687680006027222" blue="0.65174216032028198" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="144" id="GeJ-VB-05c"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                <state key="normal" title="Create Automater ">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <integer key="value" value="15"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="createAutomater:" destination="BYZ-38-t0r" eventType="touchUpInside" id="OqK-aI-soE"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Copy Right (c).2018 For" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yw3-Q2-n1U">
+                                <rect key="frame" x="46.5" y="633" width="169.5" height="18"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dD5-h1-Va8">
+                                <rect key="frame" x="224" y="626" width="65" height="32"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
+                                <state key="normal" title="AppGain"/>
+                                <connections>
+                                    <action selector="APPGainHomePage:" destination="BYZ-38-t0r" eventType="touchUpInside" id="i93-v5-xbl"/>
+                                </connections>
+                            </button>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GII-ef-i22">
+                                <rect key="frame" x="137.5" y="283.5" width="100" height="100"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="AppGain.io" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qA7-iz-SUi">
+                                        <rect key="frame" x="9.5" y="67" width="81" height="18"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="OdR-xv-IiR">
+                                        <rect key="frame" x="32" y="19" width="37" height="37"/>
+                                    </activityIndicatorView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.019299961626529694" green="0.31809931993484497" blue="0.59677970409393311" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="OdR-xv-IiR" firstAttribute="top" secondItem="GII-ef-i22" secondAttribute="top" constant="19" id="5NU-PT-77s"/>
+                                    <constraint firstAttribute="width" constant="100" id="CEi-XJ-p5M"/>
+                                    <constraint firstItem="OdR-xv-IiR" firstAttribute="centerX" secondItem="GII-ef-i22" secondAttribute="centerX" id="GIM-vc-c1z"/>
+                                    <constraint firstAttribute="height" constant="100" id="IOt-w8-8TN"/>
+                                    <constraint firstItem="qA7-iz-SUi" firstAttribute="centerX" secondItem="GII-ef-i22" secondAttribute="centerX" id="UpD-wY-3sm"/>
+                                    <constraint firstAttribute="bottom" secondItem="qA7-iz-SUi" secondAttribute="bottom" constant="15" id="axr-Ff-mNQ"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <integer key="value" value="15"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="dBL-nI-Gfd" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="7q0-kx-Kow"/>
+                            <constraint firstItem="sGZ-yl-65W" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Dpm-s8-cC7"/>
+                            <constraint firstItem="sGZ-yl-65W" firstAttribute="top" secondItem="cQw-2a-DqQ" secondAttribute="bottom" constant="41" id="TrJ-Sx-Nlq"/>
+                            <constraint firstItem="Yw3-Q2-n1U" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" multiplier="0.7" id="VhI-ZU-Vz8"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Yw3-Q2-n1U" secondAttribute="bottom" constant="16" id="bfU-VI-z1K"/>
+                            <constraint firstItem="cQw-2a-DqQ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ctf-Uz-aBx"/>
+                            <constraint firstItem="GII-ef-i22" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="ebp-bd-7TL"/>
+                            <constraint firstItem="dBL-nI-Gfd" firstAttribute="top" secondItem="sGZ-yl-65W" secondAttribute="bottom" constant="39" id="gZQ-zw-EXw"/>
+                            <constraint firstItem="dD5-h1-Va8" firstAttribute="leading" secondItem="Yw3-Q2-n1U" secondAttribute="trailing" constant="8" id="tDK-ph-E2G"/>
+                            <constraint firstItem="cQw-2a-DqQ" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="40" id="tpj-0Y-ZsR"/>
+                            <constraint firstItem="GII-ef-i22" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="uWq-L9-q3G"/>
+                            <constraint firstItem="dD5-h1-Va8" firstAttribute="centerY" secondItem="Yw3-Q2-n1U" secondAttribute="centerY" id="xwH-9q-bj8"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="AppGain.io" id="Tvh-te-RdW"/>
+                    <connections>
+                        <outlet property="loadingView" destination="GII-ef-i22" id="v4P-Tj-u8x"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1055.2" y="94.902548725637189"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="BPO-6R-uo0">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="0qJ-oj-YXY" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Qxm-jB-rBY">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" red="0.019299961626529694" green="0.31809931993484497" blue="0.59677970409393311" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="hvA-Gq-KaJ"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oU0-tU-0Rg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="116" y="94.902548725637189"/>
         </scene>

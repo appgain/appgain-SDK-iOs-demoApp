@@ -1,1 +1,1 @@
-../../../Parse/Parse/Parse/Internal/PFGeoPointPrivate.h
+../../../Parse/Parse/Internal/PFGeoPointPrivate.h

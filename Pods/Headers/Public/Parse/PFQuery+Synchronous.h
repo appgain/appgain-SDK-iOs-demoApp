@@ -1,1 +1,1 @@
-../../../Parse/Parse/Parse/PFQuery+Synchronous.h
+../../../Parse/Parse/PFQuery+Synchronous.h

@@ -1,1 +1,1 @@
-../../../Parse/Parse/Parse/Internal/Object/Subclassing/PFObjectSubclassingController.h
+../../../Parse/Parse/Internal/Object/Subclassing/PFObjectSubclassingController.h

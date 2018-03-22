@@ -1,1 +1,1 @@
-../../../Parse/Parse/Parse/Internal/Query/Controller/PFOfflineQueryController.h
+../../../Parse/Parse/Internal/Query/Controller/PFOfflineQueryController.h

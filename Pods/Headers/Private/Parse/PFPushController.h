@@ -1,1 +1,1 @@
-../../../Parse/Parse/Parse/Internal/Push/Controller/PFPushController.h
+../../../Parse/Parse/Internal/Push/Controller/PFPushController.h

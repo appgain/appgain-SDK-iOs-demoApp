@@ -14,22 +14,34 @@
 
 @implementation ViewController
 
+
+//smart link result
+
+//{
+//    "extra_data" =     {
+//        userId = aOA0Dp6d8e;
+//    };
+//    "smart_link_primary" = "appgain://deeplink";
+//}
+
+
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
 
-    
-    
-//    [AppGain CreateLinkMactcherWithUserID:@"" whenFinish:^(NSURLResponse *response, NSMutableDictionary *result) {
+    [AppGain CreateLinkMactcherWithUserID:@"" whenFinish:^(NSURLResponse * response , NSMutableDictionary *result) {
+        
 //        NSLog(@"%@",response);
 //        
 //        NSLog(@"%@",result);
 //        
-//        
-//    }];
+        
+        
+    }];
     
-
-   
+    
     // Do any additional setup after loading the view, typically from a nib.
 }
 
@@ -57,13 +69,41 @@
     
     
     ////------>
+    
+    [_loadingView setHidden:NO];
         [AppGain CreateSmartLinkWithObject:ffff whenFinish:^(NSURLResponse * response, NSMutableDictionary * result) {
-    
-    
-            NSLog(@"%@",response);
-    
-            NSLog(@"%@",result);
+ 
+        if( [result objectForKey:@"smartlink"] != NULL){
+                
+            UIAlertController * alert=[UIAlertController alertControllerWithTitle:@"successfully created" message: [result objectForKey:@"smartlink"] preferredStyle:UIAlertControllerStyleAlert];
+                
+                UIAlertAction* yesButton = [UIAlertAction actionWithTitle:@"Open"
+                                                                    style:UIAlertActionStyleDefault handler:^(UIAlertAction * action)
+                    {
+                    [[UIApplication sharedApplication] openURL:[NSURL URLWithString: [result objectForKey:@"smartlink"]]];
+                                                
+                    }];
+                
+                UIAlertAction* noButton = [UIAlertAction actionWithTitle:@"No, thanks"
+                                                                   style:UIAlertActionStyleDefault handler:^(UIAlertAction * action)
+                {
+                                               
+                                               
+                [alert dismissViewControllerAnimated:true completion:nil];
+                                           }];
+                
+                [alert addAction:yesButton];
+                [alert addAction:noButton];
+                
+                [self presentViewController:alert animated:YES completion:nil];
+        
+            }
             
+            
+            
+            
+            [_loadingView setHidden:YES];
+
             
     }];
 }
@@ -89,13 +129,53 @@
     
     
    // /sdk method
+    [_loadingView setHidden:NO];
+
         [AppGain createLandingPageWithObject:tempLandingPage whenFinish:^(NSURLResponse *response, NSMutableDictionary *result) {
+//    
+//            NSLog(@"%@",response);
+//    
+//            NSLog(@"%@",result);
+//            
+            
+           if( [result objectForKey:@"link"] != NULL){
+            
+               UIAlertController * alert=[UIAlertController alertControllerWithTitle:@"successfully created" message: [result objectForKey:@"link"] preferredStyle:UIAlertControllerStyleAlert];
+               
+               UIAlertAction* yesButton = [UIAlertAction actionWithTitle:@"Open"
+                    style:UIAlertActionStyleDefault handler:^(UIAlertAction * action)
+               {
+                   [[UIApplication sharedApplication] openURL:[NSURL URLWithString: [result objectForKey:@"link"]]];
+
+               }];
+               
+               UIAlertAction* noButton = [UIAlertAction actionWithTitle:@"No, thanks"
+                style:UIAlertActionStyleDefault handler:^(UIAlertAction * action)
+               {
+                  
+                   
+                   [alert dismissViewControllerAnimated:true completion:nil];
+               }];
+               
+               [alert addAction:yesButton];
+               [alert addAction:noButton];
+               
+               [self presentViewController:alert animated:YES completion:nil];
+               
+               
+               
+               
+            }
+            
+//            
+//            {
+//                link = "https://frstflight.appgain.io/ml/F17uP";
+//                message = "successfully created";
+//                status = success;
+//            }
     
-            NSLog(@"%@",response);
-    
-            NSLog(@"%@",result);
-    
-    
+            [_loadingView setHidden:YES];
+
         }];
     
 
@@ -106,16 +186,31 @@
     
     
 //MARK:create automater with trigger for point
-    
-    [AppGain CreateAutomatorWithTrigger:@"chatData" andUserId:@"44" whenFinish:^(NSURLResponse * response, NSMutableDictionary *result) {
+    [_loadingView setHidden:NO];
+
+    [AppGain CreateAutomatorWithTrigger:@"productview" andUserId:@"44" whenFinish:^(NSURLResponse * response, NSMutableDictionary *result) {
         
         NSLog(@"%@",response);
         
         NSLog(@"%@",result);
         
         
+        //{
+//        message = "failed in send to notify";
+//    }
+        [_loadingView setHidden:YES];
+
     }];
 }
+- (IBAction)tracknotification:(id)sender {
+    
+   
+    
+}
+
+
+
+
 
 
 - (void)didReceiveMemoryWarning {
@@ -123,5 +218,11 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)APPGainHomePage:(id)sender {
+    
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString: @"https://www.appgain.io"]];
+
+    
+}
 
 @end

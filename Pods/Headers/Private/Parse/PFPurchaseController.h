@@ -1,1 +1,1 @@
-../../../Parse/Parse/Parse/Internal/Purchase/Controller/PFPurchaseController.h
+../../../Parse/Parse/Internal/Purchase/Controller/PFPurchaseController.h

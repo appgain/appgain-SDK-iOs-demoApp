@@ -1,1 +1,1 @@
-../../../Parse/Parse/Parse/Internal/Object/Controller/PFObjectControlling.h
+../../../Parse/Parse/Internal/Object/Controller/PFObjectControlling.h

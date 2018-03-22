@@ -10,7 +10,7 @@
 
 /// import all model you need
 #import "DataModels.h"
-#import <Parse.h>
+#import <Parse/Parse.h>
 
 @interface AppGain : NSObject
 
@@ -28,5 +28,5 @@
 +(void)CreateAutomatorWithTrigger :(NSString*) trigger andUserId :(NSString*)userID whenFinish:(void (^)(NSURLResponse*, NSMutableDictionary*))onComplete;
 
 
-+(void)trackNotificationWithAction:(NSString*)action whenFinish:(void (^)(NSURLResponse*, NSMutableDictionary*))onComplete;
++(void)trackNotificationWithAction:(NSString*)action andUserInfo:(NSDictionary *) userInfo whenFinish:(void (^)(NSURLResponse*, NSMutableDictionary*))onComplete;
 @end

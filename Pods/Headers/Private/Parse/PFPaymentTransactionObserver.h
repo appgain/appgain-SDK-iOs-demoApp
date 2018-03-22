@@ -1,1 +1,1 @@
-../../../Parse/Parse/Parse/Internal/Purchase/PaymentTransactionObserver/PFPaymentTransactionObserver.h
+../../../Parse/Parse/Internal/Purchase/PaymentTransactionObserver/PFPaymentTransactionObserver.h

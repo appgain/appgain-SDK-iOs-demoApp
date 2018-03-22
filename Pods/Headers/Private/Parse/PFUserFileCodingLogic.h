@@ -1,1 +1,1 @@
-../../../Parse/Parse/Parse/Internal/User/Coder/File/PFUserFileCodingLogic.h
+../../../Parse/Parse/Internal/User/Coder/File/PFUserFileCodingLogic.h

@@ -12,6 +12,7 @@
 #import "AppGain.h"
 @interface ViewController : UIViewController
 
+@property (weak, nonatomic) IBOutlet UIView *loadingView;
 
 @end
 

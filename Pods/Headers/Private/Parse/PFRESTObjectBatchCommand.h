@@ -1,1 +1,1 @@
-../../../Parse/Parse/Parse/Internal/Commands/PFRESTObjectBatchCommand.h
+../../../Parse/Parse/Internal/Commands/PFRESTObjectBatchCommand.h
