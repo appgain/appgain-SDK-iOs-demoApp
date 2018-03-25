@@ -11,6 +11,9 @@ target 'AppGainSDKCreator' do
 
 #pod 'Parse', '~> 1.15.8'
 pod 'Parse'
+
+pod 'Fabric'
+pod 'Crashlytics'
 end
 
 

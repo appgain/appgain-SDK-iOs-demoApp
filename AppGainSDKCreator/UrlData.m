@@ -31,22 +31,20 @@
     
     SdkKeys *temp = [SdkKeys new];
     
-//https://[AppSubDomainName].appgain.io/i/smartlinks/match[?userId= parser user id ]&[isfirstRun=true|false]&[appuserId=APP userID] <- may can optional
 
-    //'https://frstflght.appgain.it/smartlinks/match?isfirstRun=true'\
-    
     NSString *userIDD = userID;
     if ( [userID isEqualToString:@""]){
         
         userIDD = [temp getParserUserID];
         
     }
-   
-   
-    
-    
+ 
     NSString *urlStringg  = [NSString stringWithFormat:@"%@%@%@%@%@%@", @"https://", [temp getAppSubDomainName], @".appgain.io/smartlinks/match?isfirstRun=" , [temp getFirstRun] , @"&userId=",userIDD];
+
     
+//    NSString *urlStringg  = [NSString stringWithFormat:@"%@%@%@%@", @"https://frstflght.appgain.io/smartlinks/match?isfirstRun=" , [temp getFirstRun] , @"&userId=",userIDD];
+//    
+//    
     return urlStringg;
 
     

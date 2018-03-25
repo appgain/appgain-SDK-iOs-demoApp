@@ -11,34 +11,47 @@
 @implementation  AppGain
 
 
+static void  (^initDone)(NSURLResponse*, NSMutableDictionary*);
 
 //get app keys and configure data
 
-+(void)initializeAppWithID:(NSString *)appID andApiKey:(NSString *)appApiKey{
++(void)initializeAppWithID:(NSString *)appID andApiKey:(NSString *)appApiKey whenFinish:(void (^)(NSURLResponse *, NSMutableDictionary *))onComplete {
 
   //  [AppGain configuerServerParser];
 
     
+    initDone =  onComplete;
+
+    
+    
+   //if no project or parser server is done sent to get parser server data
     if ([[[SdkKeys new] getParserUserID]  isEqual: @""] ) {
     
         SdkKeys* tempSdkKeys = [SdkKeys new];
-    [tempSdkKeys setAppApiKey:appApiKey];
-    [tempSdkKeys setAppID:appID];
-    [[ServiceLayer new] getRequestWithURL:[UrlData getAppKeysUrlWithID:appID] didFinish:^(NSURLResponse * response, NSMutableDictionary * result) {
-      //done
-        //  NSLog(@"- init  response ==%@",response);
-       // NSLog(@"- init matcher  result ==%@",result);
+        [tempSdkKeys setAppApiKey:appApiKey];
+        [tempSdkKeys setAppID:appID];
+        [[ServiceLayer new] getRequestWithURL:[UrlData getAppKeysUrlWithID:appID] didFinish:^(NSURLResponse * response, NSMutableDictionary * result) {
+            //done
+            //  NSLog(@"- init  response ==%@",response);
+            // NSLog(@"- init matcher  result ==%@",result);
         
         if (result != nil){
 
             [tempSdkKeys setAppSubDomainName: [result objectForKey:@"AppSubDomainName"]];
-          
             [tempSdkKeys setParseAppID: [result objectForKey:@"Parse-AppID"]];
             [tempSdkKeys setParseMasterKey:  [result objectForKey:@"Parse-masterKey"]];
             [tempSdkKeys setParseServerUrl:  [result objectForKey:@"Parse-serverUrl"]];
-      
-                  [AppGain configuerServerParser];
-   
+            //if there is no server parse --> sent match link
+            if ([[tempSdkKeys getParseServerUrl] isEqualToString:@""]){
+                [AppGain CreateLinkMactcherWithUserID:@"" whenFinish:^(NSURLResponse * response, NSMutableDictionary *result) {
+                        dispatch_async(dispatch_get_main_queue(), ^{
+                        initDone(response,result);
+                        });
+                }];
+            }
+            else{//else call parser config
+                [AppGain configuerServerParser];
+            }
         }
         else{
              NSLog(@"AppGain SDK init is fail");
@@ -47,32 +60,23 @@
         
     }];
     }
+    //else get match linker data
     else{
         [AppGain CreateLinkMactcherWithUserID:@"" whenFinish:^(NSURLResponse * response, NSMutableDictionary *result) {
-            
-           // NSLog(@"- link matcher  response ==%@",response);
-            //NSLog(@"- link matcher  result ==%@",result);
+            [AppGain CreateLinkMactcherWithUserID:@"" whenFinish:^(NSURLResponse * response, NSMutableDictionary *result) {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    initDone(response,result);
+                });
+            }];
         }];
-        
-        
     }
-    
-    
 }
+
+
+
 //MARK: configure parser server
 +(void)configuerServerParser{
-//    "AppID": "5a53f622e725ee001719ffd2",
-//    "AppSubDomainName": "frstflight",
-//    "Parse-AppID": "frstflight",
-//    "Parse-masterKey": "MASTER-af03b13ce4b203971574369b322d7963682eed6e5c1cf640df84fea7e9e4d6e2",
-//    "Parse-serverUrl": "https://appbackend.appgain.io/594507f927af4d7f96698ef5/frstflight"
-//
-    // run before fine
-   // ppId" : "frstflight"
-   // "serverUrl" : "https://appbackend.appgain.io/594507f927af4d7f96698ef5/frstflight"
-   // "masterKey" : "MASTER-af03b13ce4b203971574369b322d7963682eed6e5c1cf640df84fea7e9e4d6e2"
-    
-    
+
     // If you would like all objects to be private by default, remove this line.
     [Parse initializeWithConfiguration:[ParseClientConfiguration configurationWithBlock:^(id<ParseMutableClientConfiguration> configuration) {
         
@@ -123,7 +127,11 @@
         if (!error) {
             if (user) {
                 // Match link for first run
-                [AppGain CreateLinkMactcherWithUserID:@"" whenFinish:^(NSURLResponse * respose, NSMutableDictionary *result) {
+                [AppGain CreateLinkMactcherWithUserID:@"" whenFinish:^(NSURLResponse * response, NSMutableDictionary *result) {
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        initDone(response,result);
+                    });
+                    
                     }];
             }
         } else {   NSString *errorString = [error userInfo][@"error"];   // Show the
@@ -241,16 +249,7 @@
 //Mark track notification
 
 +(void)trackNotificationWithAction :(NSString*)action andUserInfo:(NSDictionary *) userInfo whenFinish:(void (^)(NSURLResponse*, NSMutableDictionary*))onComplete{
-//    
-//    {
-//        aps =     {
-//            alert = "hello my user ";
-//            sound = default;
-//        };
-//        campaignName = "Welcome to test ";
-//        "campaign_id" = 5ab429976dd3f5007e5c2879;
-//    }
-    
+
     NSDictionary *details = @{@"channel" :@"apppush",
                               @"action":
                                   @{@"name":action,@"value":@"NA"} ,//name could be received", --> or conversion or open
@@ -274,33 +273,6 @@
     
     }
     
-//    
-//    curl --request POST
-//    --url https://notify.appgain.io/<AppID>/recordstatus
-//    --header 'appApiKey: <appApiKey>’, 'content-type: application/json'
-//    --data ‘
-//    {
-//        "channel": "apppush",
-//        "action": {
-//            ——————————————————————————————————————————————————————
-//            ////Record status -Push Received
-//            "name": "received", --> or conversion or open
-//            OR//Record status -Push Opened
-//            "name": "open", --> or conversion or open
-//            OR//Record status -Push Conversion
-//            "name": "conversion", --> or conversion or open
-//            —————————————————————————————————————————————
-//            
-//            "value": "NA"
-//        },
-//        "userId":"[userId]",
-//        "campaign_id": "[read it from incomming push]",
-//        "campaign_name": "[read it from incomming push]"
-//    }'
-//    
-//    
-//    
-
 
 
 

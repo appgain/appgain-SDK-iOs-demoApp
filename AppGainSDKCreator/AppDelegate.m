@@ -8,6 +8,8 @@
 
 #import "AppDelegate.h"
 #import "AppGain.h"
+#import <Crashlytics/Crashlytics.h>
+#import <Fabric/Fabric.h>
 
 @interface AppDelegate ()
 
@@ -23,7 +25,28 @@
     // Override point for customization after application launch.
     
 
-    [AppGain initializeAppWithID:@"5a53f622e725ee001719ffd2" andApiKey:@"08a19262a242a074b0cd2f143df75c8971f121af9c50a39fa9c32eb605dfc388"];
+    [Fabric with:@[[Crashlytics class]]];
+
+    
+    
+    [AppGain initializeAppWithID:@"5a53f622e725ee001719ffd2" andApiKey:@"08a19262a242a074b0cd2f143df75c8971f121af9c50a39fa9c32eb605dfc388" whenFinish:^(NSURLResponse *response, NSMutableDictionary *result) {
+        //"smart_link_primary" = "firstflight://";
+        // MARK: response for match link data
+        
+        
+       // NSLog(result);
+        NSString *resultString = @"";
+        if ([result objectForKey:@"smart_link_primary"]){
+        
+            resultString = [result objectForKey:@"smart_link_primary"];
+        }
+        else{
+            resultString = [result objectForKey:@"message"];
+        }
+        [[[UIAlertView alloc] initWithTitle:@"Match URL" message: resultString delegate:NULL cancelButtonTitle:@"Dismis" otherButtonTitles:NULL, nil] show];
+
+    }];
+    
 
     
    //MARK: setting for push notification
@@ -43,21 +66,20 @@
         [application registerUserNotificationSettings:settings];
         [application registerForRemoteNotifications];
         
-
-        
-               // Code for old versions
+        // Code for old versions
     }
-    
-    
-    
-    
-
-    
-
-    // native notification reciveing
-  
-    
+ 
     return YES;
+}
+
+
+
+-(BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options{
+
+
+
+    return TRUE;
+    
 }
 
 
@@ -98,39 +120,6 @@
 
 
 
-
-//
-//- (void)registerForRemoteNotifications {
-//    if(SYSTEM_VERSION_GRATERTHAN_OR_EQUALTO(@"10.0")){
-//        UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotificationCenter];
-//       // center.delegate = self;
-//        [center requestAuthorizationWithOptions:(UNAuthorizationOptionSound | UNAuthorizationOptionAlert | UNAuthorizationOptionBadge) completionHandler:^(BOOL granted, NSError * _Nullable error){
-//            if(!error){
-//                [[UIApplication sharedApplication] registerForRemoteNotifications];
-//            }
-//        }];
-//    }
-//    else {
-//    
-//
-//    
-//        UIUserNotificationType types = UIUserNotificationTypeBadge |
-//        UIUserNotificationTypeSound | UIUserNotificationTypeAlert;
-//        
-//        UIUserNotificationSettings *mySettings =
-//        [UIUserNotificationSettings settingsForTypes:types categories:nil];
-//        
-//        [[UIApplication sharedApplication] registerUserNotificationSettings:mySettings];
-//
-//        // Code for old versions
-//    }
-//}
-
-
-
-
-
-
 //// avilable for is 10
 ////Called when a notification is delivered to a foreground app.
 -(void)userNotificationCenter:(UNUserNotificationCenter *)center willPresentNotification:(UNNotification *)notification withCompletionHandler:(void (^)(UNNotificationPresentationOptions options))completionHandler{
@@ -157,18 +146,18 @@
 -(void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo{
     NSLog(@"User Info : %@",userInfo);
     
+   
+    
     [AppGain handlePush:userInfo forApplication:application];
     
+    [[[UIAlertView alloc] initWithTitle:@"Alert" message: [[userInfo objectForKey:@"aps"] objectForKey:@"alert"]delegate:NULL cancelButtonTitle:@"Dismis" otherButtonTitles:NULL, nil] show];
+    
 }
-
-
-
-
-
 
 - (void)applicationWillResignActive:(UIApplication *)application {
   
 }
+
 
 
 - (void)applicationDidEnterBackground:(UIApplication *)application {

@@ -31,16 +31,7 @@
     [super viewDidLoad];
     
 
-    [AppGain CreateLinkMactcherWithUserID:@"" whenFinish:^(NSURLResponse * response , NSMutableDictionary *result) {
-        
-//        NSLog(@"%@",response);
-//        
-//        NSLog(@"%@",result);
-//        
-        
-        
-    }];
-    
+  
     
     // Do any additional setup after loading the view, typically from a nib.
 }
@@ -184,20 +175,15 @@
 
 - (IBAction)createAutomater:(id)sender {
     
-    
+
 //MARK:create automater with trigger for point
     [_loadingView setHidden:NO];
 
     [AppGain CreateAutomatorWithTrigger:@"productview" andUserId:@"44" whenFinish:^(NSURLResponse * response, NSMutableDictionary *result) {
         
-        NSLog(@"%@",response);
+       
+        [[[UIAlertView alloc] initWithTitle:@"Alert" message: @"Create Automater is done " delegate:NULL cancelButtonTitle:@"Dismis" otherButtonTitles:NULL, nil] show];
         
-        NSLog(@"%@",result);
-        
-        
-        //{
-//        message = "failed in send to notify";
-//    }
         [_loadingView setHidden:YES];
 
     }];

@@ -14,7 +14,10 @@
 
 @interface AppGain : NSObject
 
-+(void)initializeAppWithID:( NSString* )appID andApiKey :(NSString*)appApiKey;
+
+
+
++(void)initializeAppWithID:( NSString* )appID andApiKey :(NSString*)appApiKey  whenFinish:(void (^)(NSURLResponse*, NSMutableDictionary*))onComplete ;
 
 
 +(void)RegisterDeviceWithToken:(NSData*)deviceToken;
