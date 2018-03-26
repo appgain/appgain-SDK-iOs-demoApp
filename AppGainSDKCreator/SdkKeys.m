@@ -191,4 +191,26 @@
 }
 
 
+
+-(NSString *)getDeviceToken{
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSString *theKey = [defaults stringForKey:@"pushDeviceToken"];
+    
+    
+    if (theKey == NULL ){
+        return @"";
+    }
+    return theKey;
+    
+}
+
+-(void)setDeviceToken:(NSString *)key{
+    
+    
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setValue:key forKey:@"pushDeviceToken"];
+    [defaults synchronize];
+}
 @end

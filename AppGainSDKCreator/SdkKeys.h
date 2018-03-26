@@ -52,6 +52,8 @@
 
 -(NSString*) getParserUserID;
 -(void) setParserUserID :(NSString*)  key;
+-(NSString*) getDeviceToken;
+-(void) setDeviceToken :(NSString*)  key;
 
 
 //UDID value

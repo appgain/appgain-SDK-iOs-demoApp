@@ -16,7 +16,7 @@
 
 
 
-
++(NSString*)getUserID;
 +(void)initializeAppWithID:( NSString* )appID andApiKey :(NSString*)appApiKey  whenFinish:(void (^)(NSURLResponse*, NSMutableDictionary*))onComplete ;
 
 

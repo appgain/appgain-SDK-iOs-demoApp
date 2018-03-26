@@ -116,6 +116,7 @@ static void  (^initDone)(NSURLResponse*, NSMutableDictionary*);
     PFUser *user = [PFUser user];
     user.username = userTimeStamp;
     user.password = userTimeStamp;
+    
     [user incrementKey:@"usagecounter"];
 
     dispatch_async(dispatch_get_main_queue(), ^{
@@ -126,6 +127,39 @@ static void  (^initDone)(NSURLResponse*, NSMutableDictionary*);
         [[SdkKeys new] setParserUserID:user.objectId];
         if (!error) {
             if (user) {
+
+                
+                
+                PFInstallation *currentInstallation = [PFInstallation currentInstallation];
+                if ([PFUser currentUser].objectId)
+                {
+                    currentInstallation[@"user"] = [PFUser currentUser];
+                    currentInstallation[@"type"] = @"appPush";
+                    currentInstallation[@"appPush"] = @"true";
+
+                    currentInstallation[@"userID"] = [[PFUser currentUser] objectId];
+                    currentInstallation[@"deviceToken"] = [[SdkKeys new] getDeviceToken];
+                    
+                    
+               
+//
+//                    type=appPush
+//                    appPush =True
+//                    userID=parse userID
+                    currentInstallation.channels = @[[NSString stringWithFormat:@"user_%@",[PFUser currentUser].objectId]];
+                   // currentInstallation.channels = @[[PFUser currentUser].objectId];
+
+                    
+                    NSLog(@"Saving Installation channel = %@",currentInstallation.channels);
+                    //    "user_nj1yJD8i2B"
+
+                    [currentInstallation saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error)
+                     {
+                         NSLog(@"Current installation updated: Error: %@",error);
+                     }];
+                }
+                
+                
                 // Match link for first run
                 [AppGain CreateLinkMactcherWithUserID:@"" whenFinish:^(NSURLResponse * response, NSMutableDictionary *result) {
                     dispatch_async(dispatch_get_main_queue(), ^{
@@ -148,9 +182,16 @@ static void  (^initDone)(NSURLResponse*, NSMutableDictionary*);
 
 +(void)RegisterDeviceWithToken:(NSData*)deviceToken{
     
+    NSString *token = [[deviceToken description] stringByTrimmingCharactersInSet: [NSCharacterSet characterSetWithCharactersInString:@"<>"]];
+    token = [token stringByReplacingOccurrencesOfString:@" " withString:@""];
+    //NSLog(@"content---%@", token);
+    
+    [[SdkKeys new] setDeviceToken:token];
+    
     /// send token to parser server
         PFInstallation *currentInstallation = [PFInstallation currentInstallation];
         [currentInstallation setDeviceTokenFromData:deviceToken];
+    
         [currentInstallation saveInBackground];
 
     [PFPush subscribeToChannelInBackground:@"" block:^(BOOL succeeded, NSError *error) {
@@ -167,7 +208,7 @@ static void  (^initDone)(NSURLResponse*, NSMutableDictionary*);
   //  [PFPush handlePush:userInfo];
     
     [AppGain trackNotificationWithAction: [NotificationStatus Opened]   andUserInfo:userInfo  whenFinish:^(NSURLResponse *response, NSMutableDictionary *result) {
-       // NSLog(@"%@",result);
+        NSLog(@"%@",result);
         
         
     }];
@@ -250,17 +291,18 @@ static void  (^initDone)(NSURLResponse*, NSMutableDictionary*);
 
 +(void)trackNotificationWithAction :(NSString*)action andUserInfo:(NSDictionary *) userInfo whenFinish:(void (^)(NSURLResponse*, NSMutableDictionary*))onComplete{
 
+    
     NSDictionary *details = @{@"channel" :@"apppush",
                               @"action":
                                   @{@"name":action,@"value":@"NA"} ,//name could be received", --> or conversion or open
                               @"userId":[[SdkKeys new] getParserUserID], //
-                              @"campaign_id": [userInfo objectForKey:@"campaignName"],
-                              @"campaign_name":[userInfo objectForKey:@"campaign_id"]
+                              @"campaign_id": [userInfo objectForKey:@"campaign_id"],
+                              @"campaign_name":[userInfo objectForKey:@"campaignName"]
                               };
     
     [[ServiceLayer new] postRequestWithURL:[UrlData getnotificationTrackUrl] withBodyData:details didFinish:^(NSURLResponse *response  , NSMutableDictionary * result) {
         
-       // NSLog(@"%@",result);
+      //  NSLog(@"%@",result);
         
         dispatch_async(dispatch_get_main_queue(), ^{
             onComplete(response,result);
@@ -272,7 +314,13 @@ static void  (^initDone)(NSURLResponse*, NSMutableDictionary*);
         
     
     }
++(NSString *)getUserID{
     
+
+    return      [[SdkKeys new] getParserUserID];
+
+    
+}
 
 
 

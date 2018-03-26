@@ -74,13 +74,28 @@
 
 
 
--(BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options{
 
 
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
+{
+    if ([[[url absoluteString] lowercaseString] containsString:@"ikhair"]) {
+     
+        return YES;
+    }
+    return YES;
 
-    return TRUE;
-    
 }
+
+
+
+-(BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options{
+   return YES;
+
+}
+
+
+
+
 
 
 - (void)registerApplicationForPushNotifications:(UIApplication *)application
@@ -129,19 +144,19 @@
 }
 
 //Called to let your app know which action was selected by the user for a given notification.
--(void)userNotificationCenter:(UNUserNotificationCenter *)center didReceiveNotificationResponse:(UNNotificationResponse *)response withCompletionHandler:(void(^)())completionHandler{
-    
-    NSLog(@"User Info : %@",response.notification.request.content.userInfo);
-    completionHandler();
-    
-    [AppGain trackNotificationWithAction:[NotificationStatus Opened] andUserInfo:response.notification.request.content.userInfo   whenFinish:^(NSURLResponse *response, NSMutableDictionary *result) {
-        
-        
-        
-    }];
-   
-    
-}
+//-(void)userNotificationCenter:(UNUserNotificationCenter *)center didReceiveNotificationResponse:(UNNotificationResponse *)response withCompletionHandler:(void(^)())completionHandler{
+//    
+//    NSLog(@"User Info : %@",response.notification.request.content.userInfo);
+//    completionHandler();
+//    
+//    [AppGain trackNotificationWithAction:[NotificationStatus Opened] andUserInfo:response.notification.request.content.userInfo   whenFinish:^(NSURLResponse *response, NSMutableDictionary *result) {
+//        
+//        
+//        
+//    }];
+//   
+//    
+//}
 
 -(void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo{
     NSLog(@"User Info : %@",userInfo);

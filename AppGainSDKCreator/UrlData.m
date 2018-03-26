@@ -62,18 +62,13 @@
 }
 + (NSString*) getnotificationTrackUrl{
     
-    
     NSString *urlString =  [NSString stringWithFormat:@"%@%@%@", @"https://notify.appgain.io/", [[SdkKeys new] getAppID], @"/recordstatus"];
 
     return urlString;
 
 }
 + (NSString*) getAutomatorUrlWithTriggerPoint:(NSString *)trigger{
-   // @"https://automator.appgain.io/automessages/<AppID>/firevent/<trigger-point name>/<userId>";
-
-    
-//https://automator.appgain.io/automessages/[AppID]/firevent/[trigger
- //   point name]/[userId]
+  
     SdkKeys *temp = [SdkKeys new];
 
 

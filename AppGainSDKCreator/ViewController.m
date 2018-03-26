@@ -30,11 +30,81 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-
-  
+    [self sentMatchLink];
     
     // Do any additional setup after loading the view, typically from a nib.
 }
+
+
+
+-(void)viewDidAppear:(BOOL)animated{
+    
+    
+    [super viewDidAppear:YES];
+    
+   
+ 
+}
+
+- (IBAction)showCurrentUserID:(id)sender {
+    
+     [self.userIdLabel setText:   [AppGain getUserID]];
+
+    
+}
+
+
+
+
+-(void)sentMatchLink{
+    
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
+    NSMutableURLRequest *urlRequest = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString: @"https://frstflight.appgain.io/smartlinks/test/match"]];
+    UIWebView* webView = [[UIWebView alloc] initWithFrame:CGRectZero];
+    NSString* secretAgent = [webView stringByEvaluatingJavaScriptFromString:@"navigator.userAgent"];
+    
+    //create the Method "GET"
+    [urlRequest setHTTPMethod:@"GET"];
+    [urlRequest setAllHTTPHeaderFields: @{@"User-Agent": secretAgent}];
+    
+    //User-Agent
+    // NSLog(@"   url get reguest %@",url);
+    
+    NSURLSession *session = [NSURLSession sharedSession];
+    
+    NSURLSessionDataTask *dataTask = [session dataTaskWithRequest:urlRequest completionHandler:^(NSData *data, NSURLResponse *response, NSError *error)
+                                      {
+      
+              dispatch_async(dispatch_get_main_queue(), ^{
+                      [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:FALSE];
+                      });
+     
+          NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
+          NSMutableDictionary *responseDictionary;// = [NSMutableDictionary new];
+                                          
+          if( data != nil )
+                  {
+              NSError *parseError = nil;
+                                              // NSLog(@"%@",data);
+              responseDictionary = [NSJSONSerialization JSONObjectWithData:data options:0 error:&parseError];
+              // NSLog(@"The response is - %@",responseDictionary);
+                      
+                      dispatch_async(dispatch_get_main_queue(), ^{
+                          [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:FALSE];
+                          [_matchResultData setText:[responseDictionary description] ];
+
+                      });
+                      
+                      }
+                                         
+                                          
+      }];
+    [dataTask resume];
+    
+    
+    
+}
+
 
 
 //MARK: create smart link

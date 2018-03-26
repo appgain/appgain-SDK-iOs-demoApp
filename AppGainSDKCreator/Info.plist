@@ -21,14 +21,18 @@
 	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLName</key>
+			<string>firstflight.appgain.io</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>firstflight://</string>
+				<string>firstflight</string>
 			</array>
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>1.0.0</string>
+	<string>1.0.1</string>
 	<key>Fabric</key>
 	<dict>
 		<key>APIKey</key>
