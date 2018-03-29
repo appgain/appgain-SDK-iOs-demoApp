@@ -51,145 +51,45 @@
 
 
 }
+//MARK:Create Dictionary value for header part
 
 -(NSDictionary*)headerPage{
-//    
-//    {
-//        "type": "basic.h+logo",
-//        "logo": {
-//            "src": "https://i.imgur.com/HwieXuR.jpg"
-//        },
-//        "header": {
-//            "text": "test create landingpage"
-//        }
-//    },
+
     NSDictionary *details = @{@"type":@"basic.h+logo",@"logo":@{@"src":_LogoUrl},@"header":@{@"text":_header}};
     
     return details;
     
 }
 
+//MARK:Create Dictionary value for slider value
 
 -(NSDictionary* )sliderValue{
-    
-    //    {
-    //        "type": "basic.slider",
-    //        "slider": [
-    //                   {
-    //                       "src": “[image url ]"
-    //                   },
-    //                   {
-    //                       "src": "[input]"
-    //                   },
-    //                   {
-    //                       "src": "[input]"
-    //                   }
-    //                   ],
-    //        "speed": 3000,
-    //        "direction": "horizontal",
-    //        "autoplay": 4000
-    //    }
-    
     NSMutableArray *images = [NSMutableArray new];
     for (NSString *item in _sliderImages) {
-        NSLog(@"%@", item);
-        
         [images addObject:@{@"src":item}];
-        
-        
     }
-    
-    
     NSDictionary *details = @{@"type":@"basic.slider",@"slider":images,@"speed":@3000,@"direction":@"horizontal",@"autoplay":@4000};
     return details;
 }
+//MARK:Create Dictionary value for buttons values
 
 -(NSArray*)buttonsValues{
-    
-    // return first object only
-   // return  [_Buttons.firstObject dictionaryValue];
-    
+
     NSMutableArray *buttons = [NSMutableArray new];
-
     for (LandingButton *item in _Buttons) {
-        
-        
         [buttons addObject:item.dictionaryValue];
-        
     }
-    
-    
-
     return buttons;
 }
 
+//MARK:Create Dictionary value for object
 -(NSDictionary *)dictionaryValue{
     {
-//        "lang": "en",
-//        "web_push_subscription": true,
-//        "components": [
-//                       {
-//                           "type": "basic.h+logo",
-//                           "logo": {
-//                               "src": "https://i.imgur.com/HwieXuR.jpg"
-//                           },
-//                           "header": {
-//                               "text": "test create landingpage"
-//                           }
-//                       },
-//                       {
-//                           "type": "basic.p",
-//                           "content": "this is a test for creating landingpage"
-//                       },
-//                       {
-//                           "type": "basic.btn",
-//                           "text": "test first button",
-//                           "alt-text": "test first button",
-//                           "targets": {
-//                               "ios": "sms:01125840548&body=test%20creating",
-//                               "android": "tel:01125840548",
-//                               "web": "Openpopup://param?title=test%20landingpage%20popup&text=this%20is%20my%20test%20data%20to%20test%20popup"
-//                           }
-//                       },
-//                       {
-//                           "type": "basic.slider",
-//                           "slider": [
-//                                      {
-//                                          "src": "https://i.imgur.com/JcLINOb.png",
-//                                          "text": "first photo"
-//                                      },
-//                                      {
-//                                          "src": "https://i.imgur.com/HwieXuR.jpg",
-//                                          "text": "second photo"
-//                                      },
-//                                      {
-//                                          "src": "https://i.imgur.com/01Ek82M.jpg",
-//                                          "text": "third photo"
-//                                      }
-//                                      ],
-//                           "speed": 3000,
-//                           "direction": "horizontal",
-//                           "autoplay": 4000
-//                       }
-//                       ],
-//        "socialmedia_settings": {
-//            "title": "test create",
-//            "description": "test create landingpage",
-//            "image": "https://i.imgur.com/HwieXuR.jpg"
-//        },
-//        "label": "testcreate",
-//        "image_default": false
-//    }
-//    
 
         NSMutableArray * components = [NSMutableArray arrayWithObjects:self.headerPage,@{@"type":@"basic.p",@"content":_paragraph}, self.sliderValue, nil];
-        
-        
         [components addObjectsFromArray:[self buttonsValues]];
         
-        
-        
-    NSDictionary *details = @{@"lang" :_lang,
+        NSDictionary *details = @{@"lang" :_lang,
                               @"web_push_subscription":@YES,
                               @"label":_label,
                               //@"slug"    :_slug,
@@ -197,40 +97,10 @@
             @"components": components,
             @"socialmedia_settings":_socialSetting.dictionaryValue,
         };
-        
-        
-        //[[NSMutableArray arrayWithObjects:@"", nil] ]
-                              
     return details;
 
 
 }
 }
-
-//{
-//    "lang": "en",
-//    "web_push_subscription": true,
-//    "components": [
-//                   { "type": “basic.h+logo", "logo": { "src": “[Array of what]” },"header": 			{ "text": "Product Name “ }
-//                   },
-//                   { "type": "basic.p", "content": "[input] "},
-//                   { "type": "basic.btn","text": "[input]", "alt-text":"[input]",
-//                       "targets": { "ios": “[input]", "android": “[input]", "web": "[input]"}
-//                   },
-//                   {  "type": “basic.slider", "slider": [
-//                       {  "src": “[input]" }, { "src": "[input]"},{"src": "[input]"} ],
-//                           "speed": 3000,
-//                           "direction": "horizontal",
-//                           "autoplay": 4000
-//                       } ],
-//                       
-//                       
-//                       "socialmedia_settings": { "title": “[input]", "description":    	"[input]","image": "[input]"
-//                       },
-//                       "label": "[input]",
-//                       "image_default":false,
-//                       "slug":"[input]"-->Optional
-//}’
-
 
 @end

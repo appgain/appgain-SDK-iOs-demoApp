@@ -24,19 +24,12 @@
         _image = image;
     }
     return self;
-
-    
-    
-    
+   
 }
+//MARK:Create Dictionary value for object
 
 -(NSDictionary *)dictionaryValue{
-//    "socialmedia_settings": { // represent all data that will show in social media
-//        "title": "[input]",
-//        "description": "[input]",
-//        "image": “[input]"
-//    },
-    
+
     NSDictionary *details = @{@"title":_title,@"description":_mediaDescription,@"image":_image};
     
     
