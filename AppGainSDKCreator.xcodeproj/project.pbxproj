@@ -176,15 +176,15 @@
 				DFD83F6E20338F4900575BE2 /* SmartLinkObject.m */,
 				DFD83F7120338F4900575BE2 /* TargetPlatform.h */,
 				DFD83F7220338F4900575BE2 /* TargetPlatform.m */,
+				DFD93EBE20362931003474B9 /* LandingPageObject.h */,
+				DFD93EBF20362931003474B9 /* LandingPageObject.m */,
 				DFD93EC72036394B003474B9 /* LandingButton.h */,
 				DFD93EC82036394B003474B9 /* LandingButton.m */,
 				DFD93EC22036371F003474B9 /* SocialmediaSettings.h */,
 				DFD93EC32036371F003474B9 /* SocialmediaSettings.m */,
-				DFD93EBE20362931003474B9 /* LandingPageObject.h */,
-				DFD93EBF20362931003474B9 /* LandingPageObject.m */,
-				DFD83F6C20338F4900575BE2 /* DataModels.h */,
 				DFC07F0020573285009D25F0 /* NotificationStatus.h */,
 				DFC07F0120573285009D25F0 /* NotificationStatus.m */,
+				DFD83F6C20338F4900575BE2 /* DataModels.h */,
 			);
 			name = models;
 			sourceTree = "<group>";
@@ -237,6 +237,9 @@
 						DevelopmentTeam = YG9FTG932R;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
 							com.apple.Push = {
 								enabled = 1;
 							};

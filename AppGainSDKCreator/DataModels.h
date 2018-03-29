@@ -10,9 +10,10 @@
 #import "SmartLinkObject.h"
 #import "TargetPlatform.h"
 #import "LandingPageObject.h"
-#import "ServiceLayer.h"
-#import "SdkKeys.h"
-#import "UrlData.h"
 #import "LandingButton.h"
 #import "SocialmediaSettings.h"
 #import "NotificationStatus.h"
+#import "ServiceLayer.h"
+#import "SdkKeys.h"
+#import "UrlData.h"
+

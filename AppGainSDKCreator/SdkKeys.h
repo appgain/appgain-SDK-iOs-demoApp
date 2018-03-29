@@ -20,44 +20,58 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 @interface SdkKeys : NSObject
-//appApiKey
+
+#define APP_API_KEY @"app_api_key"
+#define APP_ID @"app_id"
+#define APP_SUB_DOMAIN_NAME @"app_sub_domain_name"
+#define PARSE_APP_ID @"parse_app_id"
+
+#define PARSE_SERVER_URL @"parse-server_url"
+#define PARSE_MASTER_KEY @"parse-master_key"
+#define FIRST_RUN_APP @"first_run_app"
+#define USER_PARSER_ID @"user_parser_id"
+
+#define PUSH_DEVICE_TOKEN @"push_device_token"
+
+//MARK:appApiKey
 -(NSString*) getAppApiKey;
 -(void) setAppApiKey :(NSString*)  key;
-//AppID
+//MARK:AppID
 -(NSString*) getAppID;
 -(void) setAppID :(NSString*)  key;
 
-//AppSubDomainName
+//MARK:AppSubDomainName
 -(NSString*) getAppSubDomainName;
 -(void) setAppSubDomainName :(NSString*)  key;
 
-//Parse-AppID
+//MARK:Parse-AppID
 -(NSString*) getParseAppID;
 -(void) setParseAppID :(NSString*)  key;
 
 
-//parse-serverUrl
+//MARK:parse-serverUrl
 -(NSString*) getParseServerUrl;
 -(void) setParseServerUrl :(NSString*)  key;
 
-//parse-masterKey
+//MARK:parse-masterKey
 -(NSString*) getParseMasterKey;
 -(void) setParseMasterKey :(NSString*)  key;
 
-//first run
-
+//MARK:first run
 -(NSString*) getFirstRun;
 -(void) setFirstRun :(NSString*)  key;
-//first run
 
+
+//MARK:Parser user id
 -(NSString*) getParserUserID;
 -(void) setParserUserID :(NSString*)  key;
+
+//MARK:device token
 -(NSString*) getDeviceToken;
 -(void) setDeviceToken :(NSString*)  key;
 
 
 //UDID value
-
 -(NSString*) getDeviceUDID;
 
 

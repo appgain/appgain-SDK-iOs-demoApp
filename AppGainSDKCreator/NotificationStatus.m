@@ -10,8 +10,6 @@
 
 @implementation NotificationStatus
 
-//    message = "request JSON is invalid, 'Received' is not one of ['open', 'received', 'conversion'] ``";
-
 +(NSString *)Received{
 
 return @"received";

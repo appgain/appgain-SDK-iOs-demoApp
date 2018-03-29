@@ -160,10 +160,9 @@
         
             }
             
+     
             
-            
-            
-            [_loadingView setHidden:YES];
+       [_loadingView setHidden:YES];
 
             
     }];
