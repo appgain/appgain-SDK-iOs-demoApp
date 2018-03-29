@@ -101,15 +101,18 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		DF45A6172034EE8500316B26 /* smartlink objects */ = {
+		81CC6AAC206CF43700C69831 /* demo files */ = {
 			isa = PBXGroup;
 			children = (
-				DFD83F6D20338F4900575BE2 /* SmartLinkObject.h */,
-				DFD83F6E20338F4900575BE2 /* SmartLinkObject.m */,
-				DFD83F7120338F4900575BE2 /* TargetPlatform.h */,
-				DFD83F7220338F4900575BE2 /* TargetPlatform.m */,
+				DFAF12B420323AE9000E2677 /* AppDelegate.h */,
+				DFAF12B520323AE9000E2677 /* AppDelegate.m */,
+				DFAF12B720323AE9000E2677 /* ViewController.h */,
+				DFAF12B820323AE9000E2677 /* ViewController.m */,
+				DFAF12BA20323AE9000E2677 /* Main.storyboard */,
+				DFAF12BD20323AE9000E2677 /* Assets.xcassets */,
+				DFAF12BF20323AE9000E2677 /* LaunchScreen.storyboard */,
 			);
-			name = "smartlink objects";
+			name = "demo files";
 			sourceTree = "<group>";
 		};
 		DFAF12A520323AE9000E2677 = {
@@ -133,19 +136,10 @@
 		DFAF12B020323AE9000E2677 /* AppGainSDKCreator */ = {
 			isa = PBXGroup;
 			children = (
-				DF32322020377C00005E9C88 /* AppGainSDKCreator.entitlements */,
 				DFD83F6B20338EFF00575BE2 /* models */,
-				DFD83F662033856D00575BE2 /* First Hand of SDK Data */,
-				DFAF12D020324A03000E2677 /* service layer */,
-				DFAF12CC2032415D000E2677 /* KeysThatUse */,
-				DFAF12C820323B06000E2677 /* URlData */,
-				DFAF12B420323AE9000E2677 /* AppDelegate.h */,
-				DFAF12B520323AE9000E2677 /* AppDelegate.m */,
-				DFAF12B720323AE9000E2677 /* ViewController.h */,
-				DFAF12B820323AE9000E2677 /* ViewController.m */,
-				DFAF12BA20323AE9000E2677 /* Main.storyboard */,
-				DFAF12BD20323AE9000E2677 /* Assets.xcassets */,
-				DFAF12BF20323AE9000E2677 /* LaunchScreen.storyboard */,
+				DFD83F662033856D00575BE2 /* Data Layer */,
+				81CC6AAC206CF43700C69831 /* demo files */,
+				DF32322020377C00005E9C88 /* AppGainSDKCreator.entitlements */,
 				DFAF12C220323AE9000E2677 /* Info.plist */,
 				DFAF12B120323AE9000E2677 /* Supporting Files */,
 			);
@@ -160,81 +154,39 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		DFAF12C820323B06000E2677 /* URlData */ = {
-			isa = PBXGroup;
-			children = (
-				DFAF12C920323B37000E2677 /* UrlData.h */,
-				DFAF12CA20323B37000E2677 /* UrlData.m */,
-			);
-			name = URlData;
-			sourceTree = "<group>";
-		};
-		DFAF12CC2032415D000E2677 /* KeysThatUse */ = {
-			isa = PBXGroup;
-			children = (
-				DFAF12CD203241AC000E2677 /* SdkKeys.h */,
-				DFAF12CE203241AC000E2677 /* SdkKeys.m */,
-			);
-			name = KeysThatUse;
-			sourceTree = "<group>";
-		};
-		DFAF12D020324A03000E2677 /* service layer */ = {
-			isa = PBXGroup;
-			children = (
-				DFAF12D120324A2D000E2677 /* ServiceLayer.h */,
-				DFAF12D220324A2D000E2677 /* ServiceLayer.m */,
-			);
-			name = "service layer";
-			sourceTree = "<group>";
-		};
-		DFD83F662033856D00575BE2 /* First Hand of SDK Data */ = {
+		DFD83F662033856D00575BE2 /* Data Layer */ = {
 			isa = PBXGroup;
 			children = (
 				DFD83F68203385C900575BE2 /* AppGain.h */,
 				DFD83F69203385C900575BE2 /* AppGain.m */,
+				DFAF12D120324A2D000E2677 /* ServiceLayer.h */,
+				DFAF12D220324A2D000E2677 /* ServiceLayer.m */,
+				DFAF12CD203241AC000E2677 /* SdkKeys.h */,
+				DFAF12CE203241AC000E2677 /* SdkKeys.m */,
+				DFAF12C920323B37000E2677 /* UrlData.h */,
+				DFAF12CA20323B37000E2677 /* UrlData.m */,
 			);
-			name = "First Hand of SDK Data";
+			name = "Data Layer";
 			sourceTree = "<group>";
 		};
 		DFD83F6B20338EFF00575BE2 /* models */ = {
 			isa = PBXGroup;
 			children = (
-				DFD93EBD20362915003474B9 /* landingPage */,
-				DF45A6172034EE8500316B26 /* smartlink objects */,
+				DFD83F6D20338F4900575BE2 /* SmartLinkObject.h */,
+				DFD83F6E20338F4900575BE2 /* SmartLinkObject.m */,
+				DFD83F7120338F4900575BE2 /* TargetPlatform.h */,
+				DFD83F7220338F4900575BE2 /* TargetPlatform.m */,
+				DFD93EC72036394B003474B9 /* LandingButton.h */,
+				DFD93EC82036394B003474B9 /* LandingButton.m */,
+				DFD93EC22036371F003474B9 /* SocialmediaSettings.h */,
+				DFD93EC32036371F003474B9 /* SocialmediaSettings.m */,
+				DFD93EBE20362931003474B9 /* LandingPageObject.h */,
+				DFD93EBF20362931003474B9 /* LandingPageObject.m */,
 				DFD83F6C20338F4900575BE2 /* DataModels.h */,
 				DFC07F0020573285009D25F0 /* NotificationStatus.h */,
 				DFC07F0120573285009D25F0 /* NotificationStatus.m */,
 			);
 			name = models;
-			sourceTree = "<group>";
-		};
-		DFD93EBD20362915003474B9 /* landingPage */ = {
-			isa = PBXGroup;
-			children = (
-				DFD93EC520363926003474B9 /* landing button */,
-				DFD93EC1203636ED003474B9 /* social media */,
-				DFD93EBE20362931003474B9 /* LandingPageObject.h */,
-				DFD93EBF20362931003474B9 /* LandingPageObject.m */,
-			);
-			name = landingPage;
-			sourceTree = "<group>";
-		};
-		DFD93EC1203636ED003474B9 /* social media */ = {
-			isa = PBXGroup;
-			children = (
-				DFD93EC22036371F003474B9 /* SocialmediaSettings.h */,
-				DFD93EC32036371F003474B9 /* SocialmediaSettings.m */,
-			);
-			name = "social media";
-			sourceTree = "<group>";
-		};
-		DFD93EC520363926003474B9 /* landing button */ = {
-			isa = PBXGroup;
-			children = (
-				DFD93EC72036394B003474B9 /* LandingButton.h */,
-				DFD93EC82036394B003474B9 /* LandingButton.m */,
-			);
-			name = "landing button";
 			sourceTree = "<group>";
 		};
 		FC8F136870E8B649D1708B97 /* Pods */ = {

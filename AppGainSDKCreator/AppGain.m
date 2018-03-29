@@ -150,22 +150,29 @@ static void  (^initDone)(NSURLResponse*, NSMutableDictionary*);
                    // currentInstallation.channels = @[[PFUser currentUser].objectId];
 
                     
-                    NSLog(@"Saving Installation channel = %@",currentInstallation.channels);
-                    //    "user_nj1yJD8i2B"
+//                    NSLog(@"Saving Installation channel = %@",currentInstallation.channels);
+//                    //    "user_nj1yJD8i2B"
 
-                    [currentInstallation saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error)
-                     {
-                         NSLog(@"Current installation updated: Error: %@",error);
-                     }];
+                    [currentInstallation saveInBackground];
+//                    [currentInstallation saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error)
+//                     {
+//                         NSLog(@"Current installation updated: Error: %@",error);
+//                     }];
+//                    
+                    
+                    PFObject *gameScore = [PFObject objectWithClassName:@"NotificationChannels"];
+                    gameScore[@"userID"] = [PFUser currentUser].objectId;
+                    gameScore[@"type"] = @"appPush";
+                    gameScore[@"appPush"] = @YES;
+                    
+                    [gameScore saveInBackground];
+   
                 }
-                
-                
                 // Match link for first run
                 [AppGain CreateLinkMactcherWithUserID:@"" whenFinish:^(NSURLResponse * response, NSMutableDictionary *result) {
                     dispatch_async(dispatch_get_main_queue(), ^{
                         initDone(response,result);
                     });
-                    
                     }];
             }
         } else {   NSString *errorString = [error userInfo][@"error"];   // Show the
@@ -177,8 +184,6 @@ static void  (^initDone)(NSURLResponse*, NSMutableDictionary*);
     }];
 }
 
-
-///https://frstflight.appgain.io/s/ihpjU
 
 +(void)RegisterDeviceWithToken:(NSData*)deviceToken{
     
@@ -196,9 +201,9 @@ static void  (^initDone)(NSURLResponse*, NSMutableDictionary*);
 
     [PFPush subscribeToChannelInBackground:@"" block:^(BOOL succeeded, NSError *error) {
         if (succeeded) {
-            NSLog(@"AppGain ParseStarterProject successfully subscribed to push notifications on the broadcast channel.");
+            NSLog(@"AppGain StarterProject successfully subscribed to push notifications on the broadcast channel.");
         } else {
-            NSLog(@"AppGain ParseStarterProject failed to subscribe to push notifications on the broadcast channel.");
+            NSLog(@"AppGain StarterProject failed to subscribe to push notifications on the broadcast channel.");
         }
     }];
 
@@ -315,11 +320,7 @@ static void  (^initDone)(NSURLResponse*, NSMutableDictionary*);
     
     }
 +(NSString *)getUserID{
-    
-
-    return      [[SdkKeys new] getParserUserID];
-
-    
+    return  [[SdkKeys new] getParserUserID];
 }
 
 
