@@ -1,14 +1,11 @@
 //
 //  UrlData.h
 //  AppGainSDKCreator
-//
-//  Created by Ragaie Alfy on 2/12/18.
-//  Copyright © 2018 Ragaie Alfy. All rights reserved.
-//
-
+//  Created by appgain.io on 2/13/18.
+//  Copyright © 2018 appgain.io All rights reserved.
 #import <Foundation/Foundation.h>
 
-#import "SdkKeys.h"
+#import "SDKKeys.h"
 
 
 @interface UrlData : NSObject

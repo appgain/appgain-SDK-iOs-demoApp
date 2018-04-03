@@ -14,15 +14,15 @@
 		DFAF12BE20323AE9000E2677 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DFAF12BD20323AE9000E2677 /* Assets.xcassets */; };
 		DFAF12C120323AE9000E2677 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DFAF12BF20323AE9000E2677 /* LaunchScreen.storyboard */; };
 		DFAF12CB20323B37000E2677 /* UrlData.m in Sources */ = {isa = PBXBuildFile; fileRef = DFAF12CA20323B37000E2677 /* UrlData.m */; };
-		DFAF12CF203241AC000E2677 /* SdkKeys.m in Sources */ = {isa = PBXBuildFile; fileRef = DFAF12CE203241AC000E2677 /* SdkKeys.m */; };
+		DFAF12CF203241AC000E2677 /* SDKKeys.m in Sources */ = {isa = PBXBuildFile; fileRef = DFAF12CE203241AC000E2677 /* SDKKeys.m */; };
 		DFAF12D320324A2D000E2677 /* ServiceLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = DFAF12D220324A2D000E2677 /* ServiceLayer.m */; };
 		DFC07F0220573285009D25F0 /* NotificationStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = DFC07F0120573285009D25F0 /* NotificationStatus.m */; };
-		DFD83F6A203385C900575BE2 /* AppGain.m in Sources */ = {isa = PBXBuildFile; fileRef = DFD83F69203385C900575BE2 /* AppGain.m */; };
-		DFD83F7320338F4900575BE2 /* SmartLinkObject.m in Sources */ = {isa = PBXBuildFile; fileRef = DFD83F6E20338F4900575BE2 /* SmartLinkObject.m */; };
+		DFD83F6A203385C900575BE2 /* Appgain.m in Sources */ = {isa = PBXBuildFile; fileRef = DFD83F69203385C900575BE2 /* Appgain.m */; };
+		DFD83F7320338F4900575BE2 /* SmartDeepLink.m in Sources */ = {isa = PBXBuildFile; fileRef = DFD83F6E20338F4900575BE2 /* SmartDeepLink.m */; };
 		DFD83F7520338F4900575BE2 /* TargetPlatform.m in Sources */ = {isa = PBXBuildFile; fileRef = DFD83F7220338F4900575BE2 /* TargetPlatform.m */; };
-		DFD93EC020362931003474B9 /* LandingPageObject.m in Sources */ = {isa = PBXBuildFile; fileRef = DFD93EBF20362931003474B9 /* LandingPageObject.m */; };
+		DFD93EC020362931003474B9 /* MobileLandingPage.m in Sources */ = {isa = PBXBuildFile; fileRef = DFD93EBF20362931003474B9 /* MobileLandingPage.m */; };
 		DFD93EC42036371F003474B9 /* SocialmediaSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = DFD93EC32036371F003474B9 /* SocialmediaSettings.m */; };
-		DFD93EC92036394B003474B9 /* LandingButton.m in Sources */ = {isa = PBXBuildFile; fileRef = DFD93EC82036394B003474B9 /* LandingButton.m */; };
+		DFD93EC92036394B003474B9 /* MobileLandingPageButton.m in Sources */ = {isa = PBXBuildFile; fileRef = DFD93EC82036394B003474B9 /* MobileLandingPageButton.m */; };
 		E15F95026159D2B71BE33DD7 /* libPods-AppGainSDKCreator.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 50EDBEB156A70374F784DEE0 /* libPods-AppGainSDKCreator.a */; };
 /* End PBXBuildFile section */
 
@@ -57,25 +57,25 @@
 		DFAF12C220323AE9000E2677 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DFAF12C920323B37000E2677 /* UrlData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UrlData.h; sourceTree = "<group>"; };
 		DFAF12CA20323B37000E2677 /* UrlData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UrlData.m; sourceTree = "<group>"; };
-		DFAF12CD203241AC000E2677 /* SdkKeys.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SdkKeys.h; sourceTree = "<group>"; };
-		DFAF12CE203241AC000E2677 /* SdkKeys.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SdkKeys.m; sourceTree = "<group>"; };
+		DFAF12CD203241AC000E2677 /* SDKKeys.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDKKeys.h; sourceTree = "<group>"; };
+		DFAF12CE203241AC000E2677 /* SDKKeys.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDKKeys.m; sourceTree = "<group>"; };
 		DFAF12D120324A2D000E2677 /* ServiceLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServiceLayer.h; sourceTree = "<group>"; };
 		DFAF12D220324A2D000E2677 /* ServiceLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServiceLayer.m; sourceTree = "<group>"; };
 		DFC07F0020573285009D25F0 /* NotificationStatus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotificationStatus.h; sourceTree = "<group>"; };
 		DFC07F0120573285009D25F0 /* NotificationStatus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotificationStatus.m; sourceTree = "<group>"; };
-		DFD83F68203385C900575BE2 /* AppGain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppGain.h; sourceTree = "<group>"; };
-		DFD83F69203385C900575BE2 /* AppGain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppGain.m; sourceTree = "<group>"; };
+		DFD83F68203385C900575BE2 /* Appgain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Appgain.h; sourceTree = "<group>"; };
+		DFD83F69203385C900575BE2 /* Appgain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Appgain.m; sourceTree = "<group>"; };
 		DFD83F6C20338F4900575BE2 /* DataModels.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataModels.h; sourceTree = "<group>"; };
-		DFD83F6D20338F4900575BE2 /* SmartLinkObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SmartLinkObject.h; sourceTree = "<group>"; };
-		DFD83F6E20338F4900575BE2 /* SmartLinkObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SmartLinkObject.m; sourceTree = "<group>"; };
+		DFD83F6D20338F4900575BE2 /* SmartDeepLink.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SmartDeepLink.h; sourceTree = "<group>"; };
+		DFD83F6E20338F4900575BE2 /* SmartDeepLink.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SmartDeepLink.m; sourceTree = "<group>"; };
 		DFD83F7120338F4900575BE2 /* TargetPlatform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TargetPlatform.h; sourceTree = "<group>"; };
 		DFD83F7220338F4900575BE2 /* TargetPlatform.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TargetPlatform.m; sourceTree = "<group>"; };
-		DFD93EBE20362931003474B9 /* LandingPageObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LandingPageObject.h; sourceTree = "<group>"; };
-		DFD93EBF20362931003474B9 /* LandingPageObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LandingPageObject.m; sourceTree = "<group>"; };
+		DFD93EBE20362931003474B9 /* MobileLandingPage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobileLandingPage.h; sourceTree = "<group>"; };
+		DFD93EBF20362931003474B9 /* MobileLandingPage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MobileLandingPage.m; sourceTree = "<group>"; };
 		DFD93EC22036371F003474B9 /* SocialmediaSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocialmediaSettings.h; sourceTree = "<group>"; };
 		DFD93EC32036371F003474B9 /* SocialmediaSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SocialmediaSettings.m; sourceTree = "<group>"; };
-		DFD93EC72036394B003474B9 /* LandingButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LandingButton.h; sourceTree = "<group>"; };
-		DFD93EC82036394B003474B9 /* LandingButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LandingButton.m; sourceTree = "<group>"; };
+		DFD93EC72036394B003474B9 /* MobileLandingPageButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobileLandingPageButton.h; sourceTree = "<group>"; };
+		DFD93EC82036394B003474B9 /* MobileLandingPageButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MobileLandingPageButton.m; sourceTree = "<group>"; };
 		F7563EE2752DFA3C1120E228 /* Pods-AppGainSDKCreator.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppGainSDKCreator.release.xcconfig"; path = "Pods/Target Support Files/Pods-AppGainSDKCreator/Pods-AppGainSDKCreator.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -157,12 +157,12 @@
 		DFD83F662033856D00575BE2 /* Data Layer */ = {
 			isa = PBXGroup;
 			children = (
-				DFD83F68203385C900575BE2 /* AppGain.h */,
-				DFD83F69203385C900575BE2 /* AppGain.m */,
+				DFD83F68203385C900575BE2 /* Appgain.h */,
+				DFD83F69203385C900575BE2 /* Appgain.m */,
 				DFAF12D120324A2D000E2677 /* ServiceLayer.h */,
 				DFAF12D220324A2D000E2677 /* ServiceLayer.m */,
-				DFAF12CD203241AC000E2677 /* SdkKeys.h */,
-				DFAF12CE203241AC000E2677 /* SdkKeys.m */,
+				DFAF12CD203241AC000E2677 /* SDKKeys.h */,
+				DFAF12CE203241AC000E2677 /* SDKKeys.m */,
 				DFAF12C920323B37000E2677 /* UrlData.h */,
 				DFAF12CA20323B37000E2677 /* UrlData.m */,
 			);
@@ -172,14 +172,14 @@
 		DFD83F6B20338EFF00575BE2 /* models */ = {
 			isa = PBXGroup;
 			children = (
-				DFD83F6D20338F4900575BE2 /* SmartLinkObject.h */,
-				DFD83F6E20338F4900575BE2 /* SmartLinkObject.m */,
+				DFD83F6D20338F4900575BE2 /* SmartDeepLink.h */,
+				DFD83F6E20338F4900575BE2 /* SmartDeepLink.m */,
 				DFD83F7120338F4900575BE2 /* TargetPlatform.h */,
 				DFD83F7220338F4900575BE2 /* TargetPlatform.m */,
-				DFD93EBE20362931003474B9 /* LandingPageObject.h */,
-				DFD93EBF20362931003474B9 /* LandingPageObject.m */,
-				DFD93EC72036394B003474B9 /* LandingButton.h */,
-				DFD93EC82036394B003474B9 /* LandingButton.m */,
+				DFD93EBE20362931003474B9 /* MobileLandingPage.h */,
+				DFD93EBF20362931003474B9 /* MobileLandingPage.m */,
+				DFD93EC72036394B003474B9 /* MobileLandingPageButton.h */,
+				DFD93EC82036394B003474B9 /* MobileLandingPageButton.m */,
 				DFD93EC22036371F003474B9 /* SocialmediaSettings.h */,
 				DFD93EC32036371F003474B9 /* SocialmediaSettings.m */,
 				DFC07F0020573285009D25F0 /* NotificationStatus.h */,
@@ -355,17 +355,17 @@
 			files = (
 				DFC07F0220573285009D25F0 /* NotificationStatus.m in Sources */,
 				DFAF12B920323AE9000E2677 /* ViewController.m in Sources */,
-				DFD93EC020362931003474B9 /* LandingPageObject.m in Sources */,
-				DFD93EC92036394B003474B9 /* LandingButton.m in Sources */,
+				DFD93EC020362931003474B9 /* MobileLandingPage.m in Sources */,
+				DFD93EC92036394B003474B9 /* MobileLandingPageButton.m in Sources */,
 				DFAF12CB20323B37000E2677 /* UrlData.m in Sources */,
 				DFAF12B620323AE9000E2677 /* AppDelegate.m in Sources */,
 				DFD83F7520338F4900575BE2 /* TargetPlatform.m in Sources */,
 				DFD93EC42036371F003474B9 /* SocialmediaSettings.m in Sources */,
-				DFD83F6A203385C900575BE2 /* AppGain.m in Sources */,
+				DFD83F6A203385C900575BE2 /* Appgain.m in Sources */,
 				DFAF12D320324A2D000E2677 /* ServiceLayer.m in Sources */,
 				DFAF12B320323AE9000E2677 /* main.m in Sources */,
-				DFAF12CF203241AC000E2677 /* SdkKeys.m in Sources */,
-				DFD83F7320338F4900575BE2 /* SmartLinkObject.m in Sources */,
+				DFAF12CF203241AC000E2677 /* SDKKeys.m in Sources */,
+				DFD83F7320338F4900575BE2 /* SmartDeepLink.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

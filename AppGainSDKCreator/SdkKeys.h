@@ -1,12 +1,7 @@
 //
 //  SdkKeys.h
-//  AppGainSDKCreator
-//
-//  Created by Ragaie Alfy on 2/12/18.
-//  Copyright © 2018 Ragaie Alfy. All rights reserved.
-//
-
-//appApiKey   <—- that will create from your account in server side .
+//  Created by appgain.io on 2/13/18.
+//  Copyright © 2018 appgain.io All rights reserved.
 
 //AppID
 //AppSubDomainName
@@ -19,7 +14,7 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
-@interface SdkKeys : NSObject
+@interface SDKKeys : NSObject
 
 #define APP_API_KEY @"app_api_key"
 #define APP_ID @"app_id"

@@ -1,14 +1,12 @@
 //
 //  LandingPageObject.m
 //  AppGainSDKCreator
-//
-//  Created by Ragaie Alfy on 2/15/18.
-//  Copyright © 2018 Ragaie Alfy. All rights reserved.
-//
+//  Created by appgain.io on 2/13/18.
+//  Copyright © 2018 appgain.io All rights reserved.
 
-#import "LandingPageObject.h"
+#import "MobileLandingPage.h"
 
-@implementation LandingPageObject
+@implementation MobileLandingPage
 
 
 @synthesize LogoUrl = _LogoUrl;
@@ -30,7 +28,7 @@
 
 
 
--(LandingPageObject *)initWithLogo:(NSString *)logoUrl andHeader:(NSString *)header andParagraph:(NSString *)paragraph withSliderUrlImages:(NSArray *)images andButtons:(NSArray *)buttons andSocialMediaSetting:(SocialmediaSettings *)mediaSetting language:(NSString *)lang andSubscription:(NSString *)sub andimage:(NSString *)image andlabel:(NSString *)label{
+-(MobileLandingPage *)initWithLogo:(NSString *)logoUrl andHeader:(NSString *)header andParagraph:(NSString *)paragraph withSliderUrlImages:(NSArray *)images andButtons:(NSArray *)buttons andSocialMediaSetting:(SocialmediaSettings *)mediaSetting language:(NSString *)lang andSubscription:(NSString *)sub andimage:(NSString *)image andlabel:(NSString *)label{
 
     
     self = [super init];
@@ -76,7 +74,7 @@
 -(NSArray*)buttonsValues{
 
     NSMutableArray *buttons = [NSMutableArray new];
-    for (LandingButton *item in _Buttons) {
+    for (MobileLandingPageButton *item in _Buttons) {
         [buttons addObject:item.dictionaryValue];
     }
     return buttons;

@@ -1,16 +1,14 @@
 //
 //  LaunchPage.m
 //  AppGainSDKCreator
-//
-//  Created by Ragaie Alfy on 2/13/18.
-//  Copyright © 2018 Ragaie Alfy. All rights reserved.
-//
-#import "SmartLinkObject.h"
+//  Created by appgain.io on 2/13/18.
+//  Copyright © 2018 appgain.io All rights reserved.
+#import "SmartDeepLink.h"
 
 
 
 
-@implementation SmartLinkObject
+@implementation SmartDeepLink
 
 @synthesize header = _header;
 
@@ -23,7 +21,7 @@
 @synthesize webPlatform = _webPlatform;
 @synthesize slug = _slug;
 
--(SmartLinkObject *)initWithHeader:(NSString *)header andImage:(NSString *)imageUrl andDescription:(NSString *)description andName:(NSString *)name iosTarget:(TargetPlatform *)ios androidTarget:(TargetPlatform *)android webTarget:(TargetPlatform *)web{
+-(SmartDeepLink *)initWithHeader:(NSString *)header andImage:(NSString *)imageUrl andDescription:(NSString *)description andName:(NSString *)name iosTarget:(TargetPlatform *)ios androidTarget:(TargetPlatform *)android webTarget:(TargetPlatform *)web{
 
 
     self = [super init];

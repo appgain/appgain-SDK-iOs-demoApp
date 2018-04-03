@@ -1,10 +1,8 @@
 //
 //  AppGainTracker.h
 //  AppGainSDKCreator
-//
-//  Created by Ragaie Alfy on 2/13/18.
-//  Copyright © 2018 Ragaie Alfy. All rights reserved.
-//
+//  Created by appgain.io on 2/13/18.
+//  Copyright © 2018 appgain.io All rights reserved.
 
 #import <Foundation/Foundation.h>
 
@@ -12,7 +10,7 @@
 #import "DataModels.h"
 #import <Parse/Parse.h>
 
-@interface AppGain : NSObject
+@interface Appgain : NSObject
 
 
 
@@ -23,10 +21,10 @@
 
 +(void)handlePush:(NSDictionary *)userInfo forApplication : (UIApplication*) application;
 
-+(void)CreateSmartLinkWithObject:( SmartLinkObject*)linkObject whenFinish:(void (^)(NSURLResponse*, NSMutableDictionary*))onComplete;
++(void)CreateSmartLinkWithObject:( SmartDeepLink*)linkObject whenFinish:(void (^)(NSURLResponse*, NSMutableDictionary*))onComplete;
 
 +(void)CreateLinkMactcherWithUserID :(NSString *)userID whenFinish:(void (^)(NSURLResponse*, NSMutableDictionary*))onComplete;
-+(void)createLandingPageWithObject:(LandingPageObject *)landingPage whenFinish:(void (^)(NSURLResponse*, NSMutableDictionary*))onComplete;
++(void)createLandingPageWithObject:(MobileLandingPage *)landingPage whenFinish:(void (^)(NSURLResponse*, NSMutableDictionary*))onComplete;
 +(void)CreateAutomatorWithTrigger :(NSString*) trigger andUserId :(NSString*)userID whenFinish:(void (^)(NSURLResponse*, NSMutableDictionary*))onComplete;
 
 

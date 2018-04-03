@@ -1,16 +1,13 @@
 //
 //  LandingPageObject.h
 //  AppGainSDKCreator
-//
-//  Created by Ragaie Alfy on 2/15/18.
-//  Copyright © 2018 Ragaie Alfy. All rights reserved.
-//
-
+//  Created by appgain.io on 2/13/18.
+//  Copyright © 2018 appgain.io All rights reserved.
 #import <Foundation/Foundation.h>
 #import "SocialmediaSettings.h"
-#import "LandingButton.h"
+#import "MobileLandingPageButton.h"
 
-@interface LandingPageObject : NSObject
+@interface MobileLandingPage : NSObject
 
 
 @property (nonatomic, strong) NSString *LogoUrl;
@@ -34,7 +31,7 @@
 
 
 
-- (LandingPageObject*)initWithLogo :(NSString*)logoUrl andHeader :(NSString*) header andParagraph :(NSString*) paragraph withSliderUrlImages:(NSArray*)images andButtons:(NSArray*) button andSocialMediaSetting :(SocialmediaSettings*) mediaSetting language: (NSString*)lang andSubscription : (NSString*) sub andimage:(NSString*) image andlabel :(NSString*)label;
+- (MobileLandingPage*)initWithLogo :(NSString*)logoUrl andHeader :(NSString*) header andParagraph :(NSString*) paragraph withSliderUrlImages:(NSArray*)images andButtons:(NSArray*) button andSocialMediaSetting :(SocialmediaSettings*) mediaSetting language: (NSString*)lang andSubscription : (NSString*) sub andimage:(NSString*) image andlabel :(NSString*)label;
 
 
 

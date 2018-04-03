@@ -48,7 +48,7 @@
 
 - (IBAction)showCurrentUserID:(id)sender {
     
-     [self.userIdLabel setText:   [AppGain getUserID]];
+     [self.userIdLabel setText:   [Appgain getUserID]];
 
     
 }
@@ -121,7 +121,7 @@
     
     
     
-    SmartLinkObject *ffff = [[SmartLinkObject new] initWithHeader:@"hello" andImage:@"https://i.imgur.com/HwieXuR.jpg" andDescription:@"welcome to test description" andName:@"ragaie" iosTarget:ios androidTarget:android webTarget:web];
+    SmartDeepLink *ffff = [[SmartDeepLink new] initWithHeader:@"hello" andImage:@"https://i.imgur.com/HwieXuR.jpg" andDescription:@"welcome to test description" andName:@"ragaie" iosTarget:ios androidTarget:android webTarget:web];
     
     [ffff setSlug:@"jjjjjj"];
     
@@ -132,7 +132,7 @@
     ////------>
     
     [_loadingView setHidden:NO];
-        [AppGain CreateSmartLinkWithObject:ffff whenFinish:^(NSURLResponse * response, NSMutableDictionary * result) {
+        [Appgain CreateSmartLinkWithObject:ffff whenFinish:^(NSURLResponse * response, NSMutableDictionary * result) {
  
         if( [result objectForKey:@"smartlink"] != NULL){
                 
@@ -179,19 +179,19 @@
     
     
     //create button that you want to apper
-    LandingButton *button1 = [[LandingButton alloc] initWithTitle:@"test First" iosTarget:@"sms:01125840548&body=test%20creating" andAndroid:@"tel:01125840548" andWeb:@"Openpopup://param?title=test%20landingpage%20popup&text=this%20is%20my%20test%20data%20to%20test%20popup"];
+    MobileLandingPageButton *button1 = [[MobileLandingPageButton alloc] initWithTitle:@"test First" iosTarget:@"sms:01125840548&body=test%20creating" andAndroid:@"tel:01125840548" andWeb:@"Openpopup://param?title=test%20landingpage%20popup&text=this%20is%20my%20test%20data%20to%20test%20popup"];
     
     //create social media butons with it is target
     SocialmediaSettings *socialMediaSetting = [[SocialmediaSettings alloc] initWithTitle:@"appGain" andDescription:@"welcome to test data" andImage:@"https://i.imgur.com/HwieXuR.jpg"];
     
     // create landing page object
-    LandingPageObject *tempLandingPage = [[LandingPageObject alloc] initWithLogo:@"https://i.imgur.com/HwieXuR.jpg" andHeader:@"test create landingpage" andParagraph:@"this is a test for creating landingpage" withSliderUrlImages:imagesUrl andButtons: [NSArray arrayWithObjects: button1,nil] andSocialMediaSetting:socialMediaSetting language:@"en" andSubscription:@"welcome" andimage:@"" andlabel:@"asdasklads"];
+    MobileLandingPage *tempLandingPage = [[MobileLandingPage alloc] initWithLogo:@"https://i.imgur.com/HwieXuR.jpg" andHeader:@"test create landingpage" andParagraph:@"this is a test for creating landingpage" withSliderUrlImages:imagesUrl andButtons: [NSArray arrayWithObjects: button1,nil] andSocialMediaSetting:socialMediaSetting language:@"en" andSubscription:@"welcome" andimage:@"" andlabel:@"asdasklads"];
     
     
    // /sdk method
     [_loadingView setHidden:NO];
 
-        [AppGain createLandingPageWithObject:tempLandingPage whenFinish:^(NSURLResponse *response, NSMutableDictionary *result) {
+        [Appgain createLandingPageWithObject:tempLandingPage whenFinish:^(NSURLResponse *response, NSMutableDictionary *result) {
 //    
 //            NSLog(@"%@",response);
 //    
@@ -248,7 +248,7 @@
 //MARK:create automater with trigger for point
     [_loadingView setHidden:NO];
 
-    [AppGain CreateAutomatorWithTrigger:@"productview" andUserId:@"44" whenFinish:^(NSURLResponse * response, NSMutableDictionary *result) {
+    [Appgain CreateAutomatorWithTrigger:@"productview" andUserId:@"44" whenFinish:^(NSURLResponse * response, NSMutableDictionary *result) {
         
        
         [[[UIAlertView alloc] initWithTitle:@"Alert" message: @"Create Automater is done " delegate:NULL cancelButtonTitle:@"Dismis" otherButtonTitles:NULL, nil] show];

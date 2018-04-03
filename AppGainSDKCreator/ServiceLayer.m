@@ -1,10 +1,8 @@
 //
 //  ServiceLayer.m
 //  AppGainSDKCreator
-//
-//  Created by Ragaie Alfy on 2/13/18.
-//  Copyright © 2018 Ragaie Alfy. All rights reserved.
-//
+//  Created by appgain.io on 2/13/18.
+//  Copyright © 2018 appgain.io All rights reserved.
 
 #import "ServiceLayer.h"
 
@@ -23,7 +21,7 @@
     //create the Method "GET"
     [urlRequest setHTTPMethod:@"GET"];
     //add header parameters
-    [urlRequest setAllHTTPHeaderFields: @{@"appApiKey": [[SdkKeys new] getAppApiKey] ,@"User-Agent": secretAgent}];
+    [urlRequest setAllHTTPHeaderFields: @{@"appApiKey": [[SDKKeys new] getAppApiKey] ,@"User-Agent": secretAgent}];
     
     NSURLSession *session = [NSURLSession sharedSession];
     NSURLSessionDataTask *dataTask = [session dataTaskWithRequest:urlRequest completionHandler:^(NSData *data, NSURLResponse *response, NSError *error)
@@ -58,7 +56,7 @@
     NSMutableURLRequest *urlRequest = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:url]];
     
     [urlRequest setHTTPMethod:@"POST"];
-    [urlRequest setAllHTTPHeaderFields: @{@"appApiKey": [[SdkKeys new] getAppApiKey],@"content-type": @"application/json"}];
+    [urlRequest setAllHTTPHeaderFields: @{@"appApiKey": [[SDKKeys new] getAppApiKey],@"content-type": @"application/json"}];
 
 //    NSLog(@"---- url sent r : %@", [dictionaryBody description]);
 //    NSLog(@"---- url sent r : %@", url);

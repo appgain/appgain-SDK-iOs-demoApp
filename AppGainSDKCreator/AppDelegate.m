@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-#import "AppGain.h"
+#import "Appgain.h"
 #import <Crashlytics/Crashlytics.h>
 #import <Fabric/Fabric.h>
 
@@ -29,7 +29,7 @@
 
     
     
-    [AppGain initializeAppWithID:@"5a53f622e725ee001719ffd2" andApiKey:@"08a19262a242a074b0cd2f143df75c8971f121af9c50a39fa9c32eb605dfc388" whenFinish:^(NSURLResponse *response, NSMutableDictionary *result) {
+    [Appgain initializeAppWithID:@"5a53f622e725ee001719ffd2" andApiKey:@"08a19262a242a074b0cd2f143df75c8971f121af9c50a39fa9c32eb605dfc388" whenFinish:^(NSURLResponse *response, NSMutableDictionary *result) {
         //"smart_link_primary" = "firstflight://";
         // MARK: response for match link data
         
@@ -131,7 +131,7 @@
     token = [token stringByReplacingOccurrencesOfString:@" " withString:@""];
     NSLog(@"content---%@", token);
    
-    [AppGain RegisterDeviceWithToken:deviceToken];
+    [Appgain RegisterDeviceWithToken:deviceToken];
     
 }
 
@@ -156,7 +156,7 @@
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(nonnull void (^)(UIBackgroundFetchResult))completionHandler{
 
     
-    [AppGain handlePush:userInfo forApplication:application];
+    [Appgain handlePush:userInfo forApplication:application];
     [[[UIAlertView alloc] initWithTitle:@"Alert" message: [[userInfo objectForKey:@"aps"] objectForKey:@"alert"] delegate:NULL cancelButtonTitle:@"Dismis" otherButtonTitles:NULL, nil] show];
     
 
@@ -171,7 +171,7 @@
 -(void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo{
     
     NSLog(@"User Info : %@",userInfo);
-    [AppGain handlePush:userInfo forApplication:application];
+    [Appgain handlePush:userInfo forApplication:application];
     
     [[[UIAlertView alloc] initWithTitle:@"Alert" message: [[userInfo objectForKey:@"aps"] objectForKey:@"alert"]delegate:NULL cancelButtonTitle:@"Dismis" otherButtonTitles:NULL, nil] show];
     

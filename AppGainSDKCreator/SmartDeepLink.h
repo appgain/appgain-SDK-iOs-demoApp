@@ -1,15 +1,13 @@
 //
 //  LaunchPage.h
 //  AppGainSDKCreator
-//
-//  Created by Ragaie Alfy on 2/13/18.
-//  Copyright © 2018 Ragaie Alfy. All rights reserved.
-//
+//  Created by appgain.io on 2/13/18.
+//  Copyright © 2018 appgain.io All rights reserved.
 #import <Foundation/Foundation.h>
 #import "TargetPlatform.h"
 
 
-@interface SmartLinkObject : NSObject
+@interface SmartDeepLink : NSObject
 
 @property (nonatomic, strong) NSString *header;
 @property (nonatomic, strong) NSString *imageUrl;
@@ -20,7 +18,7 @@
 @property (nonatomic, strong) TargetPlatform *webPlatform;
 @property (nonatomic, strong) NSString *slug ;
 
-- (SmartLinkObject*)initWithHeader: (NSString*)header andImage : (NSString*) imageUrl andDescription : (NSString*) description andName :(NSString*)name iosTarget :(TargetPlatform*)ios androidTarget :(TargetPlatform*)android webTarget :(TargetPlatform*)web;
+- (SmartDeepLink*)initWithHeader: (NSString*)header andImage : (NSString*) imageUrl andDescription : (NSString*) description andName :(NSString*)name iosTarget :(TargetPlatform*)ios androidTarget :(TargetPlatform*)android webTarget :(TargetPlatform*)web;
 
 
 

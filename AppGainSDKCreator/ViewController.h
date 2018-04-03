@@ -12,7 +12,7 @@
 
 
 #import <Crashlytics/Crashlytics.h>
-#import "AppGain.h"
+#import "Appgain.h"
 @interface ViewController : UIViewController
 
 @property (weak, nonatomic) IBOutlet UIView *loadingView;

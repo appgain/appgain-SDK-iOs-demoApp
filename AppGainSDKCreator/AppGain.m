@@ -1,14 +1,11 @@
 //
 //  AppGainTracker.m
 //  AppGainSDKCreator
-//
-//  Created by Ragaie Alfy on 2/13/18.
-//  Copyright © 2018 Ragaie Alfy. All rights reserved.
-//
+//  Created by appgain.io on 2/13/18.
+//  Copyright © 2018 appgain.io All rights reserved.
+#import "Appgain.h"
 
-#import "AppGain.h"
-
-@implementation  AppGain
+@implementation  Appgain
 
 
 
@@ -40,9 +37,9 @@ static void  (^initDone)(NSURLResponse*, NSMutableDictionary*);
     initDone =  onComplete;
 
    //if no project or parser server is done sent to get parser server data
-    if ([[[SdkKeys new] getParserUserID]  isEqual: @""] ) {
+    if ([[[SDKKeys new] getParserUserID]  isEqual: @""] ) {
     
-        SdkKeys* tempSdkKeys = [SdkKeys new];
+        SDKKeys* tempSdkKeys = [SDKKeys new];
         [tempSdkKeys setAppApiKey:appApiKey];
         [tempSdkKeys setAppID:appID];
         [[ServiceLayer new] getRequestWithURL:[UrlData getAppKeysUrlWithID:appID] didFinish:^(NSURLResponse * response, NSMutableDictionary * result) {
@@ -58,7 +55,7 @@ static void  (^initDone)(NSURLResponse*, NSMutableDictionary*);
             [tempSdkKeys setParseServerUrl:  [result objectForKey:@"Parse-serverUrl"]];
             //if there is no server parse --> sent match link
             if ([[tempSdkKeys getParseServerUrl] isEqualToString:@""]){
-                [AppGain CreateLinkMactcherWithUserID:@"" whenFinish:^(NSURLResponse * response, NSMutableDictionary *result) {
+                [Appgain CreateLinkMactcherWithUserID:@"" whenFinish:^(NSURLResponse * response, NSMutableDictionary *result) {
                         dispatch_async(dispatch_get_main_queue(), ^{
                         initDone(response,result);
                         });
@@ -66,7 +63,7 @@ static void  (^initDone)(NSURLResponse*, NSMutableDictionary*);
             }
             //if parser server data available for this app call parser configuration
             else{//else call parser config
-                [AppGain configuerServerParser];
+                [Appgain configuerServerParser];
             }
         }
         else{
@@ -78,8 +75,8 @@ static void  (^initDone)(NSURLResponse*, NSMutableDictionary*);
     }
     //else get match linker data
     else{
-        [AppGain CreateLinkMactcherWithUserID:@"" whenFinish:^(NSURLResponse * response, NSMutableDictionary *result) {
-            [AppGain CreateLinkMactcherWithUserID:@"" whenFinish:^(NSURLResponse * response, NSMutableDictionary *result) {
+        [Appgain CreateLinkMactcherWithUserID:@"" whenFinish:^(NSURLResponse * response, NSMutableDictionary *result) {
+            [Appgain CreateLinkMactcherWithUserID:@"" whenFinish:^(NSURLResponse * response, NSMutableDictionary *result) {
                 dispatch_async(dispatch_get_main_queue(), ^{
                     initDone(response,result);
                 });
@@ -99,7 +96,7 @@ static void  (^initDone)(NSURLResponse*, NSMutableDictionary*);
     // If you would like all objects to be private by default, remove this line.
     [Parse initializeWithConfiguration:[ParseClientConfiguration configurationWithBlock:^(id<ParseMutableClientConfiguration> configuration) {
         
-        SdkKeys * tempkeys = [SdkKeys new];
+        SDKKeys * tempkeys = [SDKKeys new];
         configuration.applicationId = [tempkeys getAppSubDomainName];
         //configuration.clientKey = @"CLIENT-A0D1-BA39C3D5906A";
         configuration.server =[tempkeys getParseServerUrl];
@@ -117,7 +114,7 @@ static void  (^initDone)(NSURLResponse*, NSMutableDictionary*);
     });
    //MARK:create new user for this device
     //after finish configure parser server then create user id for this app
-    [AppGain createUserID];
+    [Appgain createUserID];
   
 }
 
@@ -149,7 +146,7 @@ static void  (^initDone)(NSURLResponse*, NSMutableDictionary*);
     });
     [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         //NSLog(user.objectId);
-        [[SdkKeys new] setParserUserID:user.objectId];
+        [[SDKKeys new] setParserUserID:user.objectId];
         if (!error) {
             if (user) {
                 //after create user update parser installation with new user id
@@ -161,7 +158,7 @@ static void  (^initDone)(NSURLResponse*, NSMutableDictionary*);
                     currentInstallation[@"appPush"] = @"true";
 
                     currentInstallation[@"userID"] = [[PFUser currentUser] objectId];
-                    currentInstallation[@"deviceToken"] = [[SdkKeys new] getDeviceToken];
+                    currentInstallation[@"deviceToken"] = [[SDKKeys new] getDeviceToken];
                     currentInstallation.channels = @[[NSString stringWithFormat:@"user_%@",[PFUser currentUser].objectId]];
                     [currentInstallation saveInBackground];
 
@@ -174,7 +171,7 @@ static void  (^initDone)(NSURLResponse*, NSMutableDictionary*);
    
                 }
         /// Match link for first run
-                [AppGain CreateLinkMactcherWithUserID:@"" whenFinish:^(NSURLResponse * response, NSMutableDictionary *result) {
+                [Appgain CreateLinkMactcherWithUserID:@"" whenFinish:^(NSURLResponse * response, NSMutableDictionary *result) {
                     dispatch_async(dispatch_get_main_queue(), ^{
                         initDone(response,result);
                     });
@@ -202,7 +199,7 @@ static void  (^initDone)(NSURLResponse*, NSMutableDictionary*);
     token = [token stringByReplacingOccurrencesOfString:@" " withString:@""];
     //NSLog(@"content---%@", token);
     
-    [[SdkKeys new] setDeviceToken:token];
+    [[SDKKeys new] setDeviceToken:token];
     
     //set server installion for this device
         PFInstallation *currentInstallation = [PFInstallation currentInstallation];
@@ -223,7 +220,7 @@ static void  (^initDone)(NSURLResponse*, NSMutableDictionary*);
 +(void)handlePush:(NSDictionary *)userInfo forApplication:(UIApplication *)application{
   //  [PFPush handlePush:userInfo];
     
-    [AppGain trackNotificationWithAction: [NotificationStatus Opened]   andUserInfo:userInfo  whenFinish:^(NSURLResponse *response, NSMutableDictionary *result) {
+    [Appgain trackNotificationWithAction: [NotificationStatus Opened]   andUserInfo:userInfo  whenFinish:^(NSURLResponse *response, NSMutableDictionary *result) {
      //   NSLog(@"%@",result);
 
     }];
@@ -243,7 +240,7 @@ static void  (^initDone)(NSURLResponse*, NSMutableDictionary*);
  
  response in block
  */
-+(void)CreateSmartLinkWithObject:( SmartLinkObject*)linkObject whenFinish:(void (^)(NSURLResponse*, NSMutableDictionary*))onComplete{
++(void)CreateSmartLinkWithObject:( SmartDeepLink*)linkObject whenFinish:(void (^)(NSURLResponse*, NSMutableDictionary*))onComplete{
     
     
     
@@ -276,7 +273,7 @@ static void  (^initDone)(NSURLResponse*, NSMutableDictionary*);
 
 
 //MARK : create LandingPage for user
-+(void)createLandingPageWithObject:(LandingPageObject *)landingPage whenFinish:(void (^)(NSURLResponse*, NSMutableDictionary*))onComplete{
++(void)createLandingPageWithObject:(MobileLandingPage *)landingPage whenFinish:(void (^)(NSURLResponse*, NSMutableDictionary*))onComplete{
     [[ServiceLayer new] postRequestWithURL:[UrlData getLandingPageUrl] withBodyData: [landingPage dictionaryValue] didFinish:^(NSURLResponse *response, NSMutableDictionary *result) {
                 dispatch_async(dispatch_get_main_queue(), ^{
             onComplete(response,result);
@@ -326,7 +323,7 @@ static void  (^initDone)(NSURLResponse*, NSMutableDictionary*);
     NSDictionary *details = @{@"channel" :@"apppush",
                               @"action":
                                   @{@"name":action,@"value":@"NA"} ,//name could be received", --> or conversion or open
-                              @"userId":[[SdkKeys new] getParserUserID], //
+                              @"userId":[[SDKKeys new] getParserUserID], //
                               @"campaign_id": [userInfo objectForKey:@"campaign_id"],
                               @"campaign_name":[userInfo objectForKey:@"campaignName"]
                               };
@@ -340,10 +337,10 @@ static void  (^initDone)(NSURLResponse*, NSMutableDictionary*);
     
     }
 
-//MARK: get parser user id 
+//MARK: get parser user id
 
 +(NSString *)getUserID{
-    return  [[SdkKeys new] getParserUserID];
+    return  [[SDKKeys new] getParserUserID];
 }
 
 
