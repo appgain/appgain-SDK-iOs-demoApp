@@ -1,1 +1,0 @@
-# appgain-SDK-iOs-demoApp
