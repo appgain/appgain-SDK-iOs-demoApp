@@ -186,7 +186,7 @@
     
     // create landing page object
     MobileLandingPage *tempLandingPage = [[MobileLandingPage alloc] initWithLogo:@"https://i.imgur.com/HwieXuR.jpg" andHeader:@"test create landingpage" andParagraph:@"this is a test for creating landingpage" withSliderUrlImages:imagesUrl andButtons: [NSArray arrayWithObjects: button1,nil] andSocialMediaSetting:socialMediaSetting language:@"en" andSubscription:@"welcome" andimage:@"" andlabel:@"asdasklads"];
-    
+    tempLandingPage.slug = @"hello welcome ";
     
    // /sdk method
     [_loadingView setHidden:NO];
