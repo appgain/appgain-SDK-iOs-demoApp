@@ -182,6 +182,7 @@ static void  (^initDone)(NSURLResponse*, NSMutableDictionary*);
                     // currentInstallation.channels = timeZone.name;
                     [currentInstallation saveInBackground];
                     
+                    
                     ///add user object for notification channels
                     PFObject *notificationChannnelsObject = [PFObject objectWithClassName:@"NotificationChannels"];
                     notificationChannnelsObject[@"userId"] = [PFUser currentUser].objectId;
@@ -230,6 +231,9 @@ static void  (^initDone)(NSURLResponse*, NSMutableDictionary*);
     [currentInstallation setDeviceTokenFromData:deviceToken];
     
     [currentInstallation saveInBackground];
+    
+    
+    
     
     [PFPush subscribeToChannelInBackground:@"" block:^(BOOL succeeded, NSError *error) {
         if (succeeded) {
@@ -354,10 +358,10 @@ static void  (^initDone)(NSURLResponse*, NSMutableDictionary*);
         campaign = [userInfo objectForKey:@"campaign_id"];
     }
     
-    if ([userInfo objectForKey:@"campaign_id"]) {
+    if ([userInfo objectForKey:@"campaignName"]) {
         
         
-        campaign = [userInfo objectForKey:@"campaignName"];
+        campaign_name = [userInfo objectForKey:@"campaignName"];
     }
     
     NSDictionary *details = @{@"channel" :@"apppush",
@@ -367,6 +371,8 @@ static void  (^initDone)(NSURLResponse*, NSMutableDictionary*);
                               @"campaign_id": campaign ,
                               @"campaign_name":campaign_name
                               };
+    
+    
     
     [[ServiceLayer new] postRequestWithURL:[UrlData getnotificationTrackUrl] withBodyData:details didFinish:^(NSURLResponse *response  , NSMutableDictionary * result) {
         dispatch_async(dispatch_get_main_queue(), ^{
@@ -383,7 +389,7 @@ static void  (^initDone)(NSURLResponse*, NSMutableDictionary*);
     return  [[SDKKeys new] getParserUserID];
 }
 
-
+//
 
 +(void)updateUserId:(NSString *)userId{
     
@@ -395,13 +401,12 @@ static void  (^initDone)(NSURLResponse*, NSMutableDictionary*);
     
     [currentInstallation saveInBackground];
     
+    [[SDKKeys new] setParserUserID:userId];
+    
     // update user id
     PFUser * currentUser = [PFUser currentUser];
-    
     currentUser[@"userId"] = userId;
     [currentUser saveInBackground];
-    
-    
     
     //update user id in notification channel
     PFQuery *query = [PFQuery queryWithClassName:@"NotificationChannels"];
@@ -414,6 +419,8 @@ static void  (^initDone)(NSURLResponse*, NSMutableDictionary*);
             
             user[@"userId"] = userId;
             [user saveInBackground];
+            
+            
         }
         
         
@@ -424,3 +431,4 @@ static void  (^initDone)(NSURLResponse*, NSMutableDictionary*);
 }
 
 @end
+

@@ -11,7 +11,7 @@
 #import <Crashlytics/Crashlytics.h>
 #import <Fabric/Fabric.h>
 
-@interface AppDelegate ()
+@interface AppDelegate () <UIAlertViewDelegate>
 
 @end
 
@@ -20,6 +20,7 @@
 #define SYSTEM_VERSION_GRATERTHAN_OR_EQUALTO(v)  ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedAscending)
 @implementation AppDelegate
 
+NSDictionary * tempUserInfo ;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
@@ -144,6 +145,17 @@
     NSLog(@"User Info : %@",notification.request.content.userInfo);
     completionHandler(UNAuthorizationOptionSound | UNAuthorizationOptionAlert | UNAuthorizationOptionBadge);
     
+    tempUserInfo = notification.request.content.userInfo;
+   
+    
+    [Appgain trackNotificationWithAction:[NotificationStatus Opened] andUserInfo:tempUserInfo whenFinish:^(NSURLResponse *respone, NSMutableDictionary *result) {
+        
+        
+    }];
+    
+    UIAlertView *alert =[[UIAlertView alloc]initWithTitle:nil message:[[tempUserInfo objectForKey:@"aps"] objectForKey:@"alert"] delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Open", nil];
+    [alert show];
+    
 }
 
 
@@ -154,13 +166,14 @@
 
 // system push notifications callback, delegate to pushManager
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(nonnull void (^)(UIBackgroundFetchResult))completionHandler{
-
+    tempUserInfo = userInfo;
     
     [Appgain handlePush:userInfo forApplication:application];
-    [[[UIAlertView alloc] initWithTitle:@"Alert" message: [[userInfo objectForKey:@"aps"] objectForKey:@"alert"] delegate:NULL cancelButtonTitle:@"Dismis" otherButtonTitles:NULL, nil] show];
-    
+//    [[[UIAlertView alloc] initWithTitle:@"Alert" message: [[userInfo objectForKey:@"aps"] objectForKey:@"alert"] delegate:NULL cancelButtonTitle:@"Dismis" otherButtonTitles:NULL, nil] show];
+//    
 
-    
+    UIAlertView *alert =[[UIAlertView alloc]initWithTitle:nil message:[[userInfo objectForKey:@"aps"] objectForKey:@"alert"] delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Open", nil];
+    [alert show];
     
 }
 
@@ -171,9 +184,14 @@
 -(void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo{
     
     NSLog(@"User Info : %@",userInfo);
-    [Appgain handlePush:userInfo forApplication:application];
     
-    [[[UIAlertView alloc] initWithTitle:@"Alert" message: [[userInfo objectForKey:@"aps"] objectForKey:@"alert"]delegate:NULL cancelButtonTitle:@"Dismis" otherButtonTitles:NULL, nil] show];
+    tempUserInfo = userInfo;
+    [Appgain handlePush:userInfo forApplication:application];
+//    
+//    [[[UIAlertView alloc] initWithTitle:@"Alert" message: [[userInfo objectForKey:@"aps"] objectForKey:@"alert"]delegate:NULL cancelButtonTitle:@"Dismis" otherButtonTitles:NULL, nil] show];
+//    
+    UIAlertView *alert =[[UIAlertView alloc]initWithTitle:nil message:[[userInfo objectForKey:@"aps"] objectForKey:@"alert"] delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Open", nil];
+    [alert show];
     
 }
 
@@ -202,6 +220,20 @@
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
+
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    if (buttonIndex == 1) {
+        
+        
+        
+        [Appgain trackNotificationWithAction:[NotificationStatus Conversion] andUserInfo:tempUserInfo whenFinish:^(NSURLResponse *respone, NSMutableDictionary *result) {
+            
+            
+        }];
+        
+    }
+}
+
 
 
 @end
