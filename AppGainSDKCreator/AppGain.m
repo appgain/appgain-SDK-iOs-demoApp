@@ -118,18 +118,7 @@ static void  (^initDone)(NSURLResponse*, NSMutableDictionary*);
     });
     
     
-    
-    PFInstallation *currentInstallation = [PFInstallation currentInstallation];
-    
-    if (currentInstallation != nil){
-        
-        
-    }
-    if ([PFUser currentUser] != nil){
-        
-        
-    }
-    
+   
     
     PFUser * user = [PFUser currentUser];
     
