@@ -134,7 +134,7 @@
     
     SmartDeepLink *ffff = [[SmartDeepLink new] initWithHeader:@"hello" andImage:@"https://i.imgur.com/HwieXuR.jpg" andDescription:@"welcome to test description" andName:@"ragaie" iosTarget:ios androidTarget:android webTarget:web];
     
-    [ffff setSlug:@"jjjjjj"];
+   // [ffff setSlug:@"jjjjjj"];
     
     
     // NSLog(@"%@", ffff.dictionaryValue);
