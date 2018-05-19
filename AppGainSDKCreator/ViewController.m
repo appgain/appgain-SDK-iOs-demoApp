@@ -44,7 +44,7 @@
     
     
     
-    [Appgain CreateLinkMactcherWithUserID:@""
+    [Appgain deefredDeepLinkingWithUserID:@""
                                whenFinish:^(NSURLResponse *response, NSMutableDictionary *result) {
         if ([result objectForKey:@"smart_link_primary"]){
             
