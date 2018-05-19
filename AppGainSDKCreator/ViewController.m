@@ -42,6 +42,17 @@
     
     [super viewDidAppear:YES];
     
+    
+    
+    [Appgain CreateLinkMactcherWithUserID:@""
+                               whenFinish:^(NSURLResponse *response, NSMutableDictionary *result) {
+        if ([result objectForKey:@"smart_link_primary"]){
+            
+            NSString* targetURL = [result objectForKey:@"smart_link_primary"]; //2
+            [[UIApplication sharedApplication]openURL:[NSURL URLWithString:targetURL]];
+        }
+        
+    }];
    
  
 }
