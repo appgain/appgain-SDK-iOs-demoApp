@@ -28,23 +28,27 @@ NSDictionary * tempUserInfo ;
 
     [Fabric with:@[[Crashlytics class]]];
 
+    //Ikhair test 5ad3a65b758ddf000ddd51c9
+    // 73b89df614cb0d7a7ba645990d9822159c048332506dd4f60ed503463a8292df
     
     
-    [Appgain initializeAppWithID:@"5a53f622e725ee001719ffd2" andApiKey:@"08a19262a242a074b0cd2f143df75c8971f121af9c50a39fa9c32eb605dfc388" whenFinish:^(NSURLResponse *response, NSMutableDictionary *result) {
+    
+    /// old test
+    //  5a53f622e725ee001719ffd2
+    //  08a19262a242a074b0cd2f143df75c8971f121af9c50a39fa9c32eb605dfc388
+    
+    
+    [Appgain initializeAppWithID:@"5ad3a65b758ddf000ddd51c9" andApiKey:@"73b89df614cb0d7a7ba645990d9822159c048332506dd4f60ed503463a8292df" whenFinish:^(NSURLResponse *response, NSMutableDictionary *result) {
         //"smart_link_primary" = "firstflight://";
         // MARK: response for match link data
         
-        
-       // NSLog(result);
-        NSString *resultString = @"";
-        if ([result objectForKey:@"smart_link_primary"]){
-        
-            resultString = [result objectForKey:@"smart_link_primary"];
-        }
-        else{
-            resultString = [result objectForKey:@"message"];
-        }
-        [[[UIAlertView alloc] initWithTitle:@"Match URL" message: resultString delegate:NULL cancelButtonTitle:@"Dismis" otherButtonTitles:NULL, nil] show];
+       
+            NSLog(@"%@",result);
+             NSLog(@"%@",response);
+            
+            
+            
+      
 
     }];
     
