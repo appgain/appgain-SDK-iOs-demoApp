@@ -10,10 +10,11 @@ target 'AppGainSDKCreator' do
   #Installing Parse (1.14.4)
 
 #pod 'Parse', '~> 1.15.8'
-pod 'Parse' , '~> 1.14.4'
-
-pod 'Fabric'
+#pod 'Parse' , '~> 1.14.4'
+#
+#pod 'Fabric'
 pod 'Crashlytics'
+pod 'Appgain'
 end
 
 

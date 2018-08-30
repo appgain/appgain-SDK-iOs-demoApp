@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0700"
+   LastUpgradeVersion = "0930"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -13,11 +13,11 @@
             buildForProfiling = "YES"
             buildForArchiving = "YES">
             <BuildableReference
-               BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '7E45A1BEE92F3D49472BC80225A05CF9'
-               BlueprintName = 'Pods-AppGainSDKCreator'
-               ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'libPods-AppGainSDKCreator.a'>
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "C9F349BA81D3AE0E4433114597FE3322"
+               BlueprintName = "Pods-AppGainSDKCreator"
+               ReferencedContainer = "container:Pods.xcodeproj"
+               BuildableName = "libPods-AppGainSDKCreator.a">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

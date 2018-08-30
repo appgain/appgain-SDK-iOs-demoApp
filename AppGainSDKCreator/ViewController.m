@@ -190,13 +190,13 @@
     
     
     //create button that you want to apper
-    MobileLandingPageButton *button1 = [[MobileLandingPageButton alloc] initWithTitle:@"test First" iosTarget:@"sms:01125840548&body=test%20creating" andAndroid:@"tel:01125840548" andWeb:@"Openpopup://param?title=test%20landingpage%20popup&text=this%20is%20my%20test%20data%20to%20test%20popup"];
+    MobileDeepPageButton *button1 = [[MobileDeepPageButton alloc] initWithTitle:@"test First" iosTarget:@"sms:01125840548&body=test%20creating" andAndroid:@"tel:01125840548" andWeb:@"Openpopup://param?title=test%20landingpage%20popup&text=this%20is%20my%20test%20data%20to%20test%20popup"];
     
     //create social media butons with it is target
     SocialmediaSettings *socialMediaSetting = [[SocialmediaSettings alloc] initWithTitle:@"appGain" andDescription:@"welcome to test data" andImage:@"https://i.imgur.com/HwieXuR.jpg"];
     
     // create landing page object
-    MobileLandingPage *tempLandingPage = [[MobileLandingPage alloc] initWithLogo:@"https://i.imgur.com/HwieXuR.jpg" andHeader:@"test create landingpage" andParagraph:@"this is a test for creating landingpage" withSliderUrlImages:imagesUrl andButtons: [NSArray arrayWithObjects: button1,nil] andSocialMediaSetting:socialMediaSetting language:@"en" andSubscription:@"welcome" andimage:@"" andlabel:@"asdasklads"];
+    MobileDeepPage *tempLandingPage = [[MobileDeepPage alloc] initWithLogo:@"https://i.imgur.com/HwieXuR.jpg" andHeader:@"test create landingpage" andParagraph:@"this is a test for creating landingpage" withSliderUrlImages:imagesUrl andButtons: [NSArray arrayWithObjects: button1,nil] andSocialMediaSetting:socialMediaSetting language:@"en" andSubscription:@"welcome" andimage:@"" andlabel:@"asdasklads"];
     tempLandingPage.slug = @"hello welcome ";
     
    // /sdk method
